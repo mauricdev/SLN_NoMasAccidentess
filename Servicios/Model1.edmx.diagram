@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1a07ab12d2cc4744bf97d26ae15275fe" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.ACT_EMP" Width="1.5" PointX="6" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ACTIV_PREVENTIVA" Width="1.5" PointX="3.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AREAPROF" Width="1.5" PointX="3.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ASESORIA" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CANT_SERVICIO" Width="1.5" PointX="8.25" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CAPACITACION" Width="1.5" PointX="3" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CONTRATO" Width="1.5" PointX="3" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DETALL_RUBRO" Width="1.5" PointX="6" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DETALLE" Width="1.5" PointX="8.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EMPRESA" Width="1.5" PointX="0.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.INTERACCION" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LLAMADO" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LOG_ACCIDENTE" Width="1.5" PointX="8.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LOG_FECHA" Width="1.5" PointX="6" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.LOG_FIZCALI" Width="1.5" PointX="5.25" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MATERIAL" Width="1.5" PointX="6" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MEJORA" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MULTA" Width="1.5" PointX="3" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PAGO_EXTRA" Width="1.5" PointX="3" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PAGOS" Width="1.5" PointX="3" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PROFESIONAL" Width="1.5" PointX="6" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RUBRO" Width="1.5" PointX="3.75" PointY="42.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SERVICIO" Width="1.5" PointX="6" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USUARIO_ADMIN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USUARIOEMPRESA" Width="1.5" PointX="3" PointY="39.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VALIDAR_MEJORA" Width="1.5" PointX="10.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VISITA" Width="1.5" PointX="8.25" PointY="20.625" IsExpanded="true" />
+        <AssociationConnector Association="Model.ACT_EMP_ACTIV_PREVENTIVA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.ACT_EMP_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PROFESIONAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PROFESIONAL_AREAPROF_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.ASESORIA_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.INTERACCION_ASESORIA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.LLAMADO_ASESORIA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.LOG_ACCIDENTE_ASESORIA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.LOG_FIZCALI_ASESORIA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MEJORA_ASESORIA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VISITA_ASESORIA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CANT_SERVICIO_CONTRATO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CANT_SERVICIO_SERVICIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CAPACITACION_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_CAPACITACION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CONTRATO_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALL_RUBRO_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALL_RUBRO_RUBRO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_MATERIAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MULTA_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PAGO_EXTRA_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PAGOS_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.USUARIOEMPRESA_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.LLAMADO_PROFESIONAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.LOG_ACCIDENTE_LOG_FECHA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MEJORA_PROFESIONAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VALIDAR_MEJORA_MEJORA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VALIDAR_MEJORA_PROFESIONAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VISITA_PROFESIONAL_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

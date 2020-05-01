@@ -1,0 +1,152 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2.master.cs" Inherits="Webpage_Nma.Site2" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="shortcut icon" href="/images/candado2.png">
+    <!-- Site Title  -->
+    <title>Cliente</title>
+    <!-- Vendor Bundle CSS -->
+    <link rel="stylesheet" href="/assets2/css/vendor.bundle.css?ver=101">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="/assets2/css/style.css?ver=101">
+    <style type="text/css">
+        .auto-style2 {
+            background: #fff;
+            position: fixed;
+            top: 11px;
+            width: 100%;
+            z-index: 999;
+            min-width: 310px;
+            box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.02);
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+     <form runat="server" runat="server"  >
+     <div class="auto-style2">
+                    <div class="topbar-md d-lg-none">
+                        <div class="container">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <a href="#" class="toggle-nav">
+                                    <div class="toggle-icon">
+                                        <span class="toggle-line"></span>
+                                        <span class="toggle-line"></span>
+                                        <span class="toggle-line"></span>
+                                        <span class="toggle-line"></span>
+                                    </div>
+                                </a>
+                                <!-- .toggle-nav -->
+
+                                <div class="site-logo">
+                                    <a href="panel.aspx" class="site-brand">
+                                        <img src="/images/candado2.png" alt="logo" height="60px" srcset="/images/candado2.png 2x">
+                                    </a>
+                                </div>
+                                <!-- .site-logo -->
+
+                                <div class="dropdown topbar-action-item topbar-action-user">
+                                    <a href="#" data-toggle="dropdown">
+                                        <img class="icon" src="/images/user-thumb-sm.png" alt="thumb">
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <div class="user-dropdown">
+                                            <div class="user-dropdown-head">
+                                                <h6 class="user-dropdown-name">Stefan Harary</span></h6>
+                                                <span class="user-dropdown-email">useremail@example.com</span>
+                                            </div>
+                                            <ul class="user-dropdown-btns btn-grp guttar-10px">
+                                                <li><a href="#" class="btn btn-xs btn-warning">Confirm Email</a></li>
+                                                <li><a href="kyc.html" class="btn btn-xs btn-warning">KYC Pending</a></li>
+                                            </ul>
+                                            <div class="gaps-1x"></div>
+                                            <ul class="user-dropdown-links">
+                                                <li><a href="account.html"><i class="ti ti-id-badge"></i>Mi Perfil</a></li>
+                                                <li><a href="infoCliente.aspx"><i class="ti ti-eye"></i>Estadisticas</a></li>
+                                            </ul>
+                                            <ul class="user-dropdown-links">
+                                                <li><a href="login.html"><i class="ti ti-power-off"></i>Salir</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- .toggle-action -->
+                            </div>
+                            <!-- .container -->
+                        </div>
+                        <!-- .container -->
+                    </div>
+                    <!-- .topbar-md -->
+                    <div class="container">
+                       
+                        <div class="d-lg-flex align-items-center justify-content-between">
+                            <div class="topbar-lg d-none d-lg-block">
+                                <div class="site-logo">
+                                    <a href="panel.aspx" class="site-brand">
+                                        <img src="/images/candado2.png" height="60px" alt="logo" srcset="/images/candado2.png 2x">
+                                    </a>
+                                </div>
+                                <!-- .site-logo -->
+                            </div>
+                            <!-- .topbar-lg -->
+
+                            <div class="topbar-action d-none d-lg-block">
+                                <ul class="topbar-action-list">
+                                    <li class="topbar-action-item topbar-action-link">
+                                        <a href="#"><em class="ti ti-home"></em>Inicio</a>
+                                    </li>
+                                    <!-- .topbar-action-item -->
+
+                                    <!-- .topbar-action-item -->
+
+                                    <li class="dropdown topbar-action-item topbar-action-user">
+                                        <a href="#" data-toggle="dropdown">
+                                            <img class="icon" src="/images/user-thumb-sm.png" alt="thumb">
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right" >
+                                            <div class="user-dropdown">
+                                                <div class="user-dropdown-head">
+                                                    <h6 class="user-dropdown-name"><asp:Label runat ="server" ID="label3"></asp:Label></h6>
+                                                    <h5 class="user-dropdown-email"><asp:Label runat ="server" ID="label4"></asp:Label></h5>
+                                                </div>
+                                                <ul class="user-dropdown-links">
+                                                    <li><a href="cliente/ModificarClientes.aspx"><i class="ti ti-id-badge"></i>Mi perfil</a></li>
+                                                    <li><a href="cliente/infoCliente.aspx"><i class="ti ti-eye"></i>Estadisticas</a></li>
+                                                </ul>
+                                                <ul class="user-dropdown-links">
+                                                    <li>
+                                                        <asp:LinkButton ID="LinkButton1" class="ti ti-power-off" runat="server" OnClick="LinkButton1_Click">Salir</asp:LinkButton></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- .topbar-action-item -->
+                                </ul>
+                                      
+                                <!-- .topbar-action-list -->
+                            </div>
+                            <!-- .topbar-action -->
+                        </div>
+                        <!-- .d-flex -->
+                    </div>
+                    <!-- .container -->
+                </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+          <a href="https://segurito.com"> Segurito.com</a>
+    </div>
+
+    <script src="/assets2/js/jquery.bundle.js?ver=101"></script>
+     <script src="/assets2/js/script.js?ver=101"></script>
+  </form>
+</body>
+</html>

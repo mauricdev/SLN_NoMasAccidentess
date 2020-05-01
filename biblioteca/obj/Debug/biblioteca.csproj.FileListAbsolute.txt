@@ -1,0 +1,16 @@
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\bin\Debug\biblioteca.dll.config
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\bin\Debug\biblioteca.dll
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\bin\Debug\biblioteca.pdb
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\bin\Debug\EntityFramework.dll
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\bin\Debug\Servicios.dll
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\bin\Debug\Servicios.pdb
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\bin\Debug\Servicios.dll.config
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\bin\Debug\EntityFramework.xml
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\obj\Debug\biblioteca.csprojAssemblyReference.cache
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\obj\Debug\biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\obj\Debug\biblioteca.csproj.CopyComplete
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\obj\Debug\biblioteca.dll
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\obj\Debug\biblioteca.pdb
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\bin\Debug\linq2db.dll
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\bin\Debug\linq2db.pdb
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\biblioteca\bin\Debug\linq2db.xml

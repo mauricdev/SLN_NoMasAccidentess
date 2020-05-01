@@ -1,0 +1,10 @@
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\Servicios\bin\Debug\Servicios.dll.config
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\Servicios\bin\Debug\Servicios.dll
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\Servicios\bin\Debug\Servicios.pdb
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\Servicios\bin\Debug\EntityFramework.dll
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\Servicios\bin\Debug\EntityFramework.xml
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\Servicios\obj\Debug\Servicios.csprojAssemblyReference.cache
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\Servicios\obj\Debug\Servicios.csproj.CopyComplete
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\Servicios\obj\Debug\Servicios.dll
+C:\Users\mauri\Desktop\SLN_NoMasAccidentes\Servicios\obj\Debug\Servicios.pdb

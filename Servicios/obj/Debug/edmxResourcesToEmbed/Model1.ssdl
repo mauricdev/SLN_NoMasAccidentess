@@ -1,0 +1,1181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACT_EMP">
+    <Key>
+      <PropertyRef Name="EMPRESA_EMP_RUT" />
+      <PropertyRef Name="ACTIV_PREVENTIVA_ACTI_ID" />
+    </Key>
+    <Property Name="FECHA" Type="date" Nullable="false" />
+    <Property Name="EFECTUADA" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="ACTIV_PREVENTIVA_ACTI_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ACTIV_PREVENTIVA">
+    <Key>
+      <PropertyRef Name="ACTI_ID" />
+    </Key>
+    <Property Name="ACTI_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ACTI_DETALLE" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="ACTI_TIPO" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="ACTI_FECHA" Type="date" Nullable="false" />
+    <Property Name="ACTI_HORA" Type="date" Nullable="false" />
+    <Property Name="PROF_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AREAPROF">
+    <Key>
+      <PropertyRef Name="AREA_ID" />
+    </Key>
+    <Property Name="AREA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="AREA_DETALLE" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ASESORIA">
+    <Key>
+      <PropertyRef Name="ASES_ID" />
+    </Key>
+    <Property Name="ASES_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ASES_FECHA" Type="date" Nullable="false" />
+    <Property Name="ASES_HORA" Type="date" Nullable="false" />
+    <Property Name="ASES_REALIZADA" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="ASES_TIPO" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CANT_SERVICIO">
+    <Key>
+      <PropertyRef Name="CONTRATO_CONTRATO_ID" />
+      <PropertyRef Name="SERVICIO_SER_ID" />
+    </Key>
+    <Property Name="CANT_SERVICIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CANT_VALOR" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CANT_FECHA" Type="date" Nullable="false" />
+    <Property Name="CONTRATO_CONTRATO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SERVICIO_SER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAPACITACION">
+    <Key>
+      <PropertyRef Name="CAPAC_ID" />
+    </Key>
+    <Property Name="CAPAC_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CAPAC_HORA" Type="date" Nullable="false" />
+    <Property Name="CAPAC_TIPO" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="CAPAC_DETALLE" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="CAP_FECH" Type="date" Nullable="false" />
+    <Property Name="CAPAC_NUM" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CONTRATO">
+    <Key>
+      <PropertyRef Name="CONTRATO_ID" />
+    </Key>
+    <Property Name="CONTRATO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CONTRATO_FECINI" Type="date" Nullable="false" />
+    <Property Name="CONTRATO_FECTERMINO" Type="date" Nullable="false" />
+    <Property Name="CONTRATO_ACTIVO" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALL_RUBRO">
+    <Key>
+      <PropertyRef Name="EMPRESA_EMP_RUT" />
+      <PropertyRef Name="RUBRO_RUBRO_ID" />
+    </Key>
+    <Property Name="CANTIDAD_RUBRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="RUBRO_RUBRO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALLE">
+    <Key>
+      <PropertyRef Name="CAPACITACION_CAPAC_ID" />
+      <PropertyRef Name="MATERIAL_MATERIAL_ID" />
+    </Key>
+    <Property Name="DETALLE_CANT" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CAPACITACION_CAPAC_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MATERIAL_MATERIAL_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPRESA">
+    <Key>
+      <PropertyRef Name="EMP_RUT" />
+    </Key>
+    <Property Name="EMP_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="EMP_DIRECC" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="EMP_RAZONS" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="EMP_ESTADO" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="EMP_TRABAJADORES" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EMP_NOM" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="EMP_TELEFONO" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="INTERACCION">
+    <Key>
+      <PropertyRef Name="INTERA_ID" />
+    </Key>
+    <Property Name="INTERA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="INTERA_TIPO" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="INTERA_FECHA" Type="date" Nullable="false" />
+    <Property Name="INTERA_DESCRIPCION" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="LLAMADO">
+    <Key>
+      <PropertyRef Name="LLAMADA_ID" />
+    </Key>
+    <Property Name="LLAMADA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="LLAMADA_HR_INI" Type="date" Nullable="false" />
+    <Property Name="LLAMADA_HR_TERMINO" Type="date" Nullable="false" />
+    <Property Name="LLAMADA_DETALLE" Type="date" Nullable="false" />
+    <Property Name="LLAMADA_FECHA" Type="date" Nullable="false" />
+    <Property Name="PROFESIONAL_PROF_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOG_ACCIDENTE">
+    <Key>
+      <PropertyRef Name="LOG_ID" />
+    </Key>
+    <Property Name="LOG_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="LOG_DESCR" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="LOG_HORA" Type="date" Nullable="false" />
+    <Property Name="LOG_FECHA" Type="date" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="number" Precision="38" Scale="0" />
+    <Property Name="LOG_FECHA_ALERTA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOG_FECHA">
+    <Key>
+      <PropertyRef Name="ALERTA_ID" />
+    </Key>
+    <Property Name="ALERTA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ALERTA_NOMBRE" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOG_FIZCALI">
+    <Key>
+      <PropertyRef Name="FISCA_ID" />
+    </Key>
+    <Property Name="FISCA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FISCA_DETALLE" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="FISCA_DILIGENCIA" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="MATERIAL">
+    <Key>
+      <PropertyRef Name="MATERIAL_ID" />
+    </Key>
+    <Property Name="MATERIAL_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MATERIAL_NOMBRE" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MEJORA">
+    <Key>
+      <PropertyRef Name="MEJORAS_ID" />
+    </Key>
+    <Property Name="MEJORAS_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MEJORAS_DETALLE" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="COMPLETADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PROFESIONAL_PROF_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MULTA">
+    <Key>
+      <PropertyRef Name="MULTA_ID" />
+    </Key>
+    <Property Name="MULTA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MULTA_MONTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MULTA_FECHORA" Type="date" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAGO_EXTRA">
+    <Key>
+      <PropertyRef Name="EXTRA_ID" />
+    </Key>
+    <Property Name="EXTRA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EXTRA_CANTIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EXTRA_FECHAH" Type="date" Nullable="false" />
+    <Property Name="EXTRA_DESCRIPCION" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="varchar2" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="PAGOS">
+    <Key>
+      <PropertyRef Name="PAG_ID" />
+    </Key>
+    <Property Name="PAG_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PAG_FECHA" Type="date" Nullable="false" />
+    <Property Name="PAG_HORAS" Type="date" Nullable="false" />
+    <Property Name="PAG_MONTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PAG_FECHVENCI" Type="date" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROFESIONAL">
+    <Key>
+      <PropertyRef Name="PROF_RUT" />
+    </Key>
+    <Property Name="PROF_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="PROF_NOMBRE" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="PROF_APELLIDO" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="PROF_ACTIVO" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="PROF_CORREO" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="PROF_PASS" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="PROF_TELEFONO" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="AREAPROF_AREA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RUBRO">
+    <Key>
+      <PropertyRef Name="RUBRO_ID" />
+    </Key>
+    <Property Name="RUBRO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RUBRO_NOMBRE" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SERVICIO">
+    <Key>
+      <PropertyRef Name="SER_ID" />
+    </Key>
+    <Property Name="SER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SER_NOMBRE" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="SER_VALOR" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SER_ACTIVO" Type="char" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIO_ADMIN">
+    <Key>
+      <PropertyRef Name="USER_RUT" />
+    </Key>
+    <Property Name="USER_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="USER_NOMBRE" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="USER_APELLIDO" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="USER_CORREO" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="USER_PASS" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="USER_ESTADO" Type="char" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIOEMPRESA">
+    <Key>
+      <PropertyRef Name="USER_RUT" />
+    </Key>
+    <Property Name="USER_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="USER_NOMBRE" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="USER_CORREO" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="USER_PASS" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="USER_ACTIVO" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VALIDAR_MEJORA">
+    <Key>
+      <PropertyRef Name="ID_VALIDACION" />
+    </Key>
+    <Property Name="ID_VALIDACION" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CORRECCION" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="FECHA_VALIDA" Type="date" Nullable="false" />
+    <Property Name="PROFESIONAL_PROF_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="MEJORA_MEJORAS_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VISITA">
+    <Key>
+      <PropertyRef Name="VISITA_ID" />
+    </Key>
+    <Property Name="VISITA_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="VISITA_FECHA" Type="date" Nullable="false" />
+    <Property Name="VISITA_HORA" Type="date" Nullable="false" />
+    <Property Name="VISITA_DESCRIPCION" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="VISITA_REALIZADA" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="PROFESIONAL_PROF_RUT" Type="varchar2" MaxLength="45" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <Association Name="ACT_EMP_ACTIV_PREVENTIVA_FK">
+    <End Role="ACTIV_PREVENTIVA" Type="Self.ACTIV_PREVENTIVA" Multiplicity="1" />
+    <End Role="ACT_EMP" Type="Self.ACT_EMP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIV_PREVENTIVA">
+        <PropertyRef Name="ACTI_ID" />
+      </Principal>
+      <Dependent Role="ACT_EMP">
+        <PropertyRef Name="ACTIV_PREVENTIVA_ACTI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ACT_EMP_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="ACT_EMP" Type="Self.ACT_EMP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="ACT_EMP">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ASESORIA_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="ASESORIA">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CANT_SERVICIO_CONTRATO_FK">
+    <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="1" />
+    <End Role="CANT_SERVICIO" Type="Self.CANT_SERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO">
+        <PropertyRef Name="CONTRATO_ID" />
+      </Principal>
+      <Dependent Role="CANT_SERVICIO">
+        <PropertyRef Name="CONTRATO_CONTRATO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CANT_SERVICIO_SERVICIO_FK">
+    <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
+    <End Role="CANT_SERVICIO" Type="Self.CANT_SERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SERVICIO">
+        <PropertyRef Name="SER_ID" />
+      </Principal>
+      <Dependent Role="CANT_SERVICIO">
+        <PropertyRef Name="SERVICIO_SER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CAPACITACION_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="CAPACITACION">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTRATO_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="CONTRATO">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALL_RUBRO_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="DETALL_RUBRO" Type="Self.DETALL_RUBRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="DETALL_RUBRO">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALL_RUBRO_RUBRO_FK">
+    <End Role="RUBRO" Type="Self.RUBRO" Multiplicity="1" />
+    <End Role="DETALL_RUBRO" Type="Self.DETALL_RUBRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUBRO">
+        <PropertyRef Name="RUBRO_ID" />
+      </Principal>
+      <Dependent Role="DETALL_RUBRO">
+        <PropertyRef Name="RUBRO_RUBRO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_CAPACITACION_FK">
+    <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="1" />
+    <End Role="DETALLE" Type="Self.DETALLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPACITACION">
+        <PropertyRef Name="CAPAC_ID" />
+      </Principal>
+      <Dependent Role="DETALLE">
+        <PropertyRef Name="CAPACITACION_CAPAC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_MATERIAL_FK">
+    <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="1" />
+    <End Role="DETALLE" Type="Self.DETALLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MATERIAL">
+        <PropertyRef Name="MATERIAL_ID" />
+      </Principal>
+      <Dependent Role="DETALLE">
+        <PropertyRef Name="MATERIAL_MATERIAL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="INTERACCION_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="0..1" />
+    <End Role="INTERACCION" Type="Self.INTERACCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="INTERACCION">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LLAMADO_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="1" />
+    <End Role="LLAMADO" Type="Self.LLAMADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="LLAMADO">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LLAMADO_PROFESIONAL_FK">
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+    <End Role="LLAMADO" Type="Self.LLAMADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFESIONAL">
+        <PropertyRef Name="PROF_RUT" />
+      </Principal>
+      <Dependent Role="LLAMADO">
+        <PropertyRef Name="PROFESIONAL_PROF_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LOG_ACCIDENTE_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="0..1" />
+    <End Role="LOG_ACCIDENTE" Type="Self.LOG_ACCIDENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="LOG_ACCIDENTE">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LOG_ACCIDENTE_LOG_FECHA_FK">
+    <End Role="LOG_FECHA" Type="Self.LOG_FECHA" Multiplicity="1" />
+    <End Role="LOG_ACCIDENTE" Type="Self.LOG_ACCIDENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOG_FECHA">
+        <PropertyRef Name="ALERTA_ID" />
+      </Principal>
+      <Dependent Role="LOG_ACCIDENTE">
+        <PropertyRef Name="LOG_FECHA_ALERTA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LOG_FIZCALI_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="0..1" />
+    <End Role="LOG_FIZCALI" Type="Self.LOG_FIZCALI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="LOG_FIZCALI">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MEJORA_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="1" />
+    <End Role="MEJORA" Type="Self.MEJORA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="MEJORA">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MEJORA_PROFESIONAL_FK">
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+    <End Role="MEJORA" Type="Self.MEJORA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFESIONAL">
+        <PropertyRef Name="PROF_RUT" />
+      </Principal>
+      <Dependent Role="MEJORA">
+        <PropertyRef Name="PROFESIONAL_PROF_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MULTA_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="MULTA" Type="Self.MULTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="MULTA">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PAGO_EXTRA_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+    <End Role="PAGO_EXTRA" Type="Self.PAGO_EXTRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="PAGO_EXTRA">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PAGOS_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="PAGOS" Type="Self.PAGOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="PAGOS">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PROFESIONAL_AREAPROF_FK">
+    <End Role="AREAPROF" Type="Self.AREAPROF" Multiplicity="1" />
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AREAPROF">
+        <PropertyRef Name="AREA_ID" />
+      </Principal>
+      <Dependent Role="PROFESIONAL">
+        <PropertyRef Name="AREAPROF_AREA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PROFESIONAL_FK">
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+    <End Role="ACTIV_PREVENTIVA" Type="Self.ACTIV_PREVENTIVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFESIONAL">
+        <PropertyRef Name="PROF_RUT" />
+      </Principal>
+      <Dependent Role="ACTIV_PREVENTIVA">
+        <PropertyRef Name="PROF_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="USUARIOEMPRESA_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="USUARIOEMPRESA" Type="Self.USUARIOEMPRESA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="USUARIOEMPRESA">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VALIDAR_MEJORA_MEJORA_FK">
+    <End Role="MEJORA" Type="Self.MEJORA" Multiplicity="1" />
+    <End Role="VALIDAR_MEJORA" Type="Self.VALIDAR_MEJORA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEJORA">
+        <PropertyRef Name="MEJORAS_ID" />
+      </Principal>
+      <Dependent Role="VALIDAR_MEJORA">
+        <PropertyRef Name="MEJORA_MEJORAS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VALIDAR_MEJORA_PROFESIONAL_FK">
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+    <End Role="VALIDAR_MEJORA" Type="Self.VALIDAR_MEJORA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFESIONAL">
+        <PropertyRef Name="PROF_RUT" />
+      </Principal>
+      <Dependent Role="VALIDAR_MEJORA">
+        <PropertyRef Name="PROFESIONAL_PROF_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VISITA_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="1" />
+    <End Role="VISITA" Type="Self.VISITA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="VISITA">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VISITA_PROFESIONAL_FK">
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+    <End Role="VISITA" Type="Self.VISITA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFESIONAL">
+        <PropertyRef Name="PROF_RUT" />
+      </Principal>
+      <Dependent Role="VISITA">
+        <PropertyRef Name="PROFESIONAL_PROF_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="QB_ENCRIPCION_FB_DESCENCRIPTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="QB_ENCRIPCION.FB_DESCENCRIPTAR" ReturnType="varchar2">
+    <Parameter Name="TXT_DESENCRIP" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="QB_ENCRIPCION_FB_ENCRIPTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="QB_ENCRIPCION.FB_ENCRIPTAR" ReturnType="raw">
+    <Parameter Name="TXT_ENCRIP" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_ACT_EMPRESA_PRO_CREAR_ACT_EMPRESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_ACT_EMPRESA.PRO_CREAR_ACT_EMPRESA">
+    <Parameter Name="ACT_FECHA" Type="date" Mode="In" />
+    <Parameter Name="ACT_EFECTUADA" Type="char" Mode="In" />
+    <Parameter Name="ACT_EMP_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="ACT_PREV_ACTI_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SGT_ACT_EMPRESA_PRO_MODIFICAR_ACT_EMPRESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_ACT_EMPRESA.PRO_MODIFICAR_ACT_EMPRESA">
+    <Parameter Name="ACT_FECHA" Type="date" Mode="In" />
+    <Parameter Name="ACT_EFECTUADA" Type="char" Mode="In" />
+    <Parameter Name="ACT_EMP_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="ACT_PREV_ACTI_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SGT_AREA_PROFESIONAL_PRO_CREAR_AREA_PROFESIONAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_AREA_PROFESIONAL.PRO_CREAR_AREA_PROFESIONAL">
+    <Parameter Name="AR_ID" Type="number" Mode="In" />
+    <Parameter Name="AR_DETALLE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_AREA_PROFESIONAL_PRO_MODIFICAR_ASESORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_AREA_PROFESIONAL.PRO_MODIFICAR_ASESORIA">
+    <Parameter Name="AR_ID" Type="number" Mode="In" />
+    <Parameter Name="AR_DETALLE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_ASESORIA_PRO_CREAR_ASESORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_ASESORIA.PRO_CREAR_ASESORIA">
+    <Parameter Name="AS_ID" Type="number" Mode="In" />
+    <Parameter Name="AS_FECHA" Type="date" Mode="In" />
+    <Parameter Name="AS_HORA" Type="date" Mode="In" />
+    <Parameter Name="AS_REALIZADA" Type="char" Mode="In" />
+    <Parameter Name="AS_EMP_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="AS_TIPO" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_ASESORIA_PRO_MODIFICAR_ASESORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_ASESORIA.PRO_MODIFICAR_ASESORIA">
+    <Parameter Name="AS_ID" Type="number" Mode="In" />
+    <Parameter Name="AS_FECHA" Type="date" Mode="In" />
+    <Parameter Name="AS_HORA" Type="date" Mode="In" />
+    <Parameter Name="AS_REALIZADA" Type="char" Mode="In" />
+    <Parameter Name="AS_EMP_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="AS_TIPO" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_ASESORIA_SP_LISTAR_ASESORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_ASESORIA.SP_LISTAR_ASESORIA" />
+  <Function Name="SGT_CAN_SERVICIO_PRO_CREAR_CAN_SERVICIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_CAN_SERVICIO.PRO_CREAR_CAN_SERVICIO">
+    <Parameter Name="CAN_SER" Type="number" Mode="In" />
+    <Parameter Name="CAN_CONTR_ID" Type="number" Mode="In" />
+    <Parameter Name="CAN_SER_ID" Type="number" Mode="In" />
+    <Parameter Name="CAN_VALOR" Type="number" Mode="In" />
+    <Parameter Name="CAN_FECHA" Type="date" Mode="In" />
+  </Function>
+  <Function Name="SGT_CAN_SERVICIO_PRO_MODIFICAR_CAN_SERVICIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_CAN_SERVICIO.PRO_MODIFICAR_CAN_SERVICIO">
+    <Parameter Name="CAN_SER" Type="number" Mode="In" />
+    <Parameter Name="CAN_CONTR_ID" Type="number" Mode="In" />
+    <Parameter Name="CAN_SER_ID" Type="number" Mode="In" />
+    <Parameter Name="CAN_VALOR" Type="number" Mode="In" />
+    <Parameter Name="CAN_FECHA" Type="date" Mode="In" />
+  </Function>
+  <Function Name="SGT_CAPACITACION_PRO_CREAR_CAPACITACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_CAPACITACION.PRO_CREAR_CAPACITACION">
+    <Parameter Name="CAP_ID" Type="number" Mode="In" />
+    <Parameter Name="CAP_TIPO" Type="varchar2" Mode="In" />
+    <Parameter Name="CAP_DETALLE" Type="varchar2" Mode="In" />
+    <Parameter Name="CAP_FECH" Type="date" Mode="In" />
+    <Parameter Name="CAP_HORA" Type="date" Mode="In" />
+    <Parameter Name="CAP_NUM" Type="number" Mode="In" />
+    <Parameter Name="CAP_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_CAPACITACION_PRO_MODIFICAR_CAPACITACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_CAPACITACION.PRO_MODIFICAR_CAPACITACION">
+    <Parameter Name="CAP_ID" Type="number" Mode="In" />
+    <Parameter Name="CAP_TIPO" Type="varchar2" Mode="In" />
+    <Parameter Name="CAP_DETALLE" Type="varchar2" Mode="In" />
+    <Parameter Name="CAP_FECH" Type="date" Mode="In" />
+    <Parameter Name="CAP_HORA" Type="date" Mode="In" />
+    <Parameter Name="CAP_NUM" Type="number" Mode="In" />
+    <Parameter Name="CAP_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_COD_ALERTA_PRO_CREAR_COD_ALERTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_COD_ALERTA.PRO_CREAR_COD_ALERTA">
+    <Parameter Name="ALER_ID" Type="number" Mode="In" />
+    <Parameter Name="ALER_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_COD_ALERTA_PRO_MODIFICAR_COD_ALERTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_COD_ALERTA.PRO_MODIFICAR_COD_ALERTA">
+    <Parameter Name="ALER_ID" Type="number" Mode="In" />
+    <Parameter Name="ALER_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_CONTRATO_PRO_CREAR_CONTRATO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_CONTRATO.PRO_CREAR_CONTRATO">
+    <Parameter Name="CON_ID" Type="number" Mode="In" />
+    <Parameter Name="CON_FECINI" Type="date" Mode="In" />
+    <Parameter Name="CON_FECTERMINO" Type="date" Mode="In" />
+    <Parameter Name="CON_ACTIVO" Type="char" Mode="In" />
+    <Parameter Name="CON_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_CONTRATO_PRO_MODIFICAR_CONTRATO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_CONTRATO.PRO_MODIFICAR_CONTRATO">
+    <Parameter Name="CON_ID" Type="number" Mode="In" />
+    <Parameter Name="CON_FECINI" Type="date" Mode="In" />
+    <Parameter Name="CON_FECTERMINO" Type="date" Mode="In" />
+    <Parameter Name="CON_ACTIVO" Type="char" Mode="In" />
+    <Parameter Name="CON_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_DETALLE_PRO_CREAR_DETALLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_DETALLE.PRO_CREAR_DETALLE">
+    <Parameter Name="DET_CANT" Type="number" Mode="In" />
+    <Parameter Name="DET_MAT_ID" Type="number" Mode="In" />
+    <Parameter Name="DET_CAP_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SGT_DETALLE_PRO_MODIFICAR_DETALLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_DETALLE.PRO_MODIFICAR_DETALLE">
+    <Parameter Name="DET_CANT" Type="number" Mode="In" />
+    <Parameter Name="DET_MAT_ID" Type="number" Mode="In" />
+    <Parameter Name="DET_CAP_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SGT_DETALLE_RUBRO_PRO_CREAR_DETALLE_RUBRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_DETALLE_RUBRO.PRO_CREAR_DETALLE_RUBRO">
+    <Parameter Name="DR_CANT_RUBRO" Type="number" Mode="In" />
+    <Parameter Name="DR_RUBRO_ID" Type="number" Mode="In" />
+    <Parameter Name="DR_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_DETALLE_RUBRO_PRO_MODIFICAR_DETALLE_RUBRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_DETALLE_RUBRO.PRO_MODIFICAR_DETALLE_RUBRO">
+    <Parameter Name="DR_CANT_RUBRO" Type="number" Mode="In" />
+    <Parameter Name="DR_RUBRO_ID" Type="number" Mode="In" />
+    <Parameter Name="DR_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_EMPRESA_PRO_CREAR_EMPRESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_EMPRESA.PRO_CREAR_EMPRESA">
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="DIRECC" Type="varchar2" Mode="In" />
+    <Parameter Name="RAZONS" Type="varchar2" Mode="In" />
+    <Parameter Name="ESTADO" Type="char" Mode="In" />
+    <Parameter Name="TRABAJADORES" Type="number" Mode="In" />
+    <Parameter Name="NOM" Type="varchar2" Mode="In" />
+    <Parameter Name="EM_TELEFONO" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_EMPRESA_PRO_MODIFICAR_EMPRESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_EMPRESA.PRO_MODIFICAR_EMPRESA">
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="DIRECC" Type="varchar2" Mode="In" />
+    <Parameter Name="RAZONS" Type="varchar2" Mode="In" />
+    <Parameter Name="ESTADO" Type="char" Mode="In" />
+    <Parameter Name="TRABAJADORES" Type="number" Mode="In" />
+    <Parameter Name="NOM" Type="varchar2" Mode="In" />
+    <Parameter Name="EM_TELEFONO" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_EMPRESA_SGT_LISTAR_EMPRESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_EMPRESA.SGT_LISTAR_EMPRESA" />
+  <Function Name="SGT_INTERACC_PRO_CREAR_INTERACC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_INTERACC.PRO_CREAR_INTERACC">
+    <Parameter Name="INT_ID" Type="number" Mode="In" />
+    <Parameter Name="INT_TIPO" Type="varchar2" Mode="In" />
+    <Parameter Name="INT_ASES_ID" Type="number" Mode="In" />
+    <Parameter Name="INT_FECHA" Type="date" Mode="In" />
+    <Parameter Name="INT_DESCRIPCION" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_INTERACC_PRO_MODIFICAR_INTERACC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_INTERACC.PRO_MODIFICAR_INTERACC">
+    <Parameter Name="INT_ID" Type="number" Mode="In" />
+    <Parameter Name="INT_TIPO" Type="varchar2" Mode="In" />
+    <Parameter Name="INT_ASES_ID" Type="number" Mode="In" />
+    <Parameter Name="INT_FECHA" Type="date" Mode="In" />
+    <Parameter Name="INT_DESCRIPCION" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_LLAMADA_PRO_CREAR_LLAMADA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_LLAMADA.PRO_CREAR_LLAMADA">
+    <Parameter Name="LL_ID" Type="number" Mode="In" />
+    <Parameter Name="LL_HR_INI" Type="date" Mode="In" />
+    <Parameter Name="LL_HR_TERMINO" Type="date" Mode="In" />
+    <Parameter Name="LL_DETALLE" Type="date" Mode="In" />
+    <Parameter Name="LL_FECHA" Type="date" Mode="In" />
+    <Parameter Name="LL_PROF_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="LL_ASES_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SGT_LLAMADA_PRO_MODIFICAR_LLAMADA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_LLAMADA.PRO_MODIFICAR_LLAMADA">
+    <Parameter Name="LL_ID" Type="number" Mode="In" />
+    <Parameter Name="LL_HR_INI" Type="date" Mode="In" />
+    <Parameter Name="LL_HR_TERMINO" Type="date" Mode="In" />
+    <Parameter Name="LL_DETALLE" Type="date" Mode="In" />
+    <Parameter Name="LL_FECHA" Type="date" Mode="In" />
+    <Parameter Name="LL_PROF_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="LL_ASES_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SGT_LOG_ACCIDENTE_PRO_CREAR_LOG_ACCIDENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_LOG_ACCIDENTE.PRO_CREAR_LOG_ACCIDENTE">
+    <Parameter Name="AC_ID" Type="number" Mode="In" />
+    <Parameter Name="AC_DESCR" Type="varchar2" Mode="In" />
+    <Parameter Name="AC_HORA" Type="date" Mode="In" />
+    <Parameter Name="AC_FECHA" Type="date" Mode="In" />
+    <Parameter Name="AC_ASES_ID" Type="number" Mode="In" />
+    <Parameter Name="AC_ALERTA_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SGT_LOG_ACCIDENTE_PRO_MODIFICAR_LOG_ACCIDENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_LOG_ACCIDENTE.PRO_MODIFICAR_LOG_ACCIDENTE">
+    <Parameter Name="AC_ID" Type="number" Mode="In" />
+    <Parameter Name="AC_DESCR" Type="varchar2" Mode="In" />
+    <Parameter Name="AC_HORA" Type="date" Mode="In" />
+    <Parameter Name="AC_FECHA" Type="date" Mode="In" />
+    <Parameter Name="AC_ASES_ID" Type="number" Mode="In" />
+    <Parameter Name="AC_ALERTA_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SGT_LOG_FISCALI_PRO_CREAR_LOG_FISCALI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_LOG_FISCALI.PRO_CREAR_LOG_FISCALI">
+    <Parameter Name="FI_ID" Type="number" Mode="In" />
+    <Parameter Name="FI_DETALLE" Type="varchar2" Mode="In" />
+    <Parameter Name="FI_DILIGENCIA" Type="varchar2" Mode="In" />
+    <Parameter Name="FI_ASES_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SGT_LOG_FISCALI_PRO_MODIFICAR_LOG_FISCALI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_LOG_FISCALI.PRO_MODIFICAR_LOG_FISCALI">
+    <Parameter Name="FI_ID" Type="number" Mode="In" />
+    <Parameter Name="FI_DETALLE" Type="varchar2" Mode="In" />
+    <Parameter Name="FI_DILIGENCIA" Type="varchar2" Mode="In" />
+    <Parameter Name="FI_ASES_ID" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SGT_MATERIAL_PRO_CREAR_MATERIAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_MATERIAL.PRO_CREAR_MATERIAL">
+    <Parameter Name="MAT_ID" Type="number" Mode="In" />
+    <Parameter Name="MAT_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_MATERIAL_PRO_MODIFICAR_MATERIAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_MATERIAL.PRO_MODIFICAR_MATERIAL">
+    <Parameter Name="MAT_ID" Type="number" Mode="In" />
+    <Parameter Name="MAT_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_MEJORA_PRO_CREAR_MEJORA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_MEJORA.PRO_CREAR_MEJORA">
+    <Parameter Name="MEJ_ID" Type="number" Mode="In" />
+    <Parameter Name="MEJ_DETALLE" Type="varchar2" Mode="In" />
+    <Parameter Name="MEJ_ASES_ID" Type="number" Mode="In" />
+    <Parameter Name="MEJ_PROF_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="MEJ_COMPLETADO" Type="char" Mode="In" />
+  </Function>
+  <Function Name="SGT_MEJORA_PRO_MODIFICAR_MEJORA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_MEJORA.PRO_MODIFICAR_MEJORA">
+    <Parameter Name="MEJ_ID" Type="number" Mode="In" />
+    <Parameter Name="MEJ_DETALLE" Type="varchar2" Mode="In" />
+    <Parameter Name="MEJ_ASES_ID" Type="number" Mode="In" />
+    <Parameter Name="MEJ_PROF_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="MEJ_COMPLETADO" Type="char" Mode="In" />
+  </Function>
+  <Function Name="SGT_MULTA_PRO_CREAR_MULTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_MULTA.PRO_CREAR_MULTA">
+    <Parameter Name="M_ID" Type="number" Mode="In" />
+    <Parameter Name="M_MONTO" Type="number" Mode="In" />
+    <Parameter Name="M_FECHORA" Type="date" Mode="In" />
+    <Parameter Name="M_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_MULTA_PRO_MODIFICAR_MULTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_MULTA.PRO_MODIFICAR_MULTA">
+    <Parameter Name="M_ID" Type="number" Mode="In" />
+    <Parameter Name="M_MONTO" Type="number" Mode="In" />
+    <Parameter Name="M_FECHORA" Type="date" Mode="In" />
+    <Parameter Name="M_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_PAGO_PRO_CREAR_PAGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_PAGO.PRO_CREAR_PAGO">
+    <Parameter Name="PA_ID" Type="number" Mode="In" />
+    <Parameter Name="PA_FECHA" Type="date" Mode="In" />
+    <Parameter Name="PA_HORAS" Type="date" Mode="In" />
+    <Parameter Name="PA_MONTO" Type="number" Mode="In" />
+    <Parameter Name="PA_FECHVENCI" Type="date" Mode="In" />
+    <Parameter Name="PA_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_PAGO_PRO_MODIFICAR_PAGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_PAGO.PRO_MODIFICAR_PAGO">
+    <Parameter Name="PA_ID" Type="number" Mode="In" />
+    <Parameter Name="PA_FECHA" Type="date" Mode="In" />
+    <Parameter Name="PA_HORAS" Type="date" Mode="In" />
+    <Parameter Name="PA_MONTO" Type="number" Mode="In" />
+    <Parameter Name="PA_FECHVENCI" Type="date" Mode="In" />
+    <Parameter Name="PA_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_PAGO_EXTRA_PRO_CREAR_PAGO_EXTRA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_PAGO_EXTRA.PRO_CREAR_PAGO_EXTRA">
+    <Parameter Name="EX_ID" Type="number" Mode="In" />
+    <Parameter Name="EX_CANTIDAD" Type="number" Mode="In" />
+    <Parameter Name="EX_FECHAH" Type="date" Mode="In" />
+    <Parameter Name="EX_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="EX_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_PAGO_EXTRA_PRO_MODIFICAR_PAGO_EXTRA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_PAGO_EXTRA.PRO_MODIFICAR_PAGO_EXTRA">
+    <Parameter Name="EX_ID" Type="number" Mode="In" />
+    <Parameter Name="EX_CANTIDAD" Type="number" Mode="In" />
+    <Parameter Name="EX_FECHAH" Type="date" Mode="In" />
+    <Parameter Name="EX_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="EX_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_PRE_ACTIVI_PRO_CREAR_PRE_ACTIVI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_PRE_ACTIVI.PRO_CREAR_PRE_ACTIVI">
+    <Parameter Name="AC_ID" Type="number" Mode="In" />
+    <Parameter Name="AC_DETALLE" Type="varchar2" Mode="In" />
+    <Parameter Name="AC_TIPO" Type="varchar2" Mode="In" />
+    <Parameter Name="AC_FECHA" Type="date" Mode="In" />
+    <Parameter Name="AC_HORA" Type="date" Mode="In" />
+    <Parameter Name="AC_PROF_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_PRE_ACTIVI_PRO_MODIFICAR_PRE_ACTIVI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_PRE_ACTIVI.PRO_MODIFICAR_PRE_ACTIVI">
+    <Parameter Name="AC_ID" Type="number" Mode="In" />
+    <Parameter Name="AC_DETALLE" Type="varchar2" Mode="In" />
+    <Parameter Name="AC_TIPO" Type="varchar2" Mode="In" />
+    <Parameter Name="AC_FECHA" Type="date" Mode="In" />
+    <Parameter Name="AC_HORA" Type="date" Mode="In" />
+    <Parameter Name="AC_PROF_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_PROFESIONAL_F_AUTENTIFICAR_USUARIO_PR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_PROFESIONAL.F_AUTENTIFICAR_USUARIO_PR" ReturnType="number">
+    <Parameter Name="V_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="V_PASS" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_PROFESIONAL_PRO_CREAR_PROFESIONAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_PROFESIONAL.PRO_CREAR_PROFESIONAL">
+    <Parameter Name="PR_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_APELLIDO" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_ACTIVO" Type="char" Mode="In" />
+    <Parameter Name="PR_AREAPROF_ID" Type="number" Mode="In" />
+    <Parameter Name="PR_TELEFONO" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_PASS" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_CORREO" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_PROFESIONAL_PRO_MODIFICAR_PROFESIONAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_PROFESIONAL.PRO_MODIFICAR_PROFESIONAL">
+    <Parameter Name="PR_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_APELLIDO" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_ACTIVO" Type="char" Mode="In" />
+    <Parameter Name="PR_AREAPROF_ID" Type="number" Mode="In" />
+    <Parameter Name="R_TELEFONO" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_PASS" Type="varchar2" Mode="In" />
+    <Parameter Name="PR_CORREO" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_RUBRO_PRO_CREAR_RUBRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_RUBRO.PRO_CREAR_RUBRO">
+    <Parameter Name="R_ID" Type="number" Mode="In" />
+    <Parameter Name="R_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_RUBRO_PRO_MODIFICAR_RUBRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_RUBRO.PRO_MODIFICAR_RUBRO">
+    <Parameter Name="R_ID" Type="number" Mode="In" />
+    <Parameter Name="R_NOMBRE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_SERVICIO_PRO_CREAR_SERVICIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_SERVICIO.PRO_CREAR_SERVICIO">
+    <Parameter Name="S_ID" Type="number" Mode="In" />
+    <Parameter Name="S_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="S_VALOR" Type="number" Mode="In" />
+    <Parameter Name="S_ACTIVO" Type="char" Mode="In" />
+  </Function>
+  <Function Name="SGT_SERVICIO_PRO_MODIFICAR_SERVICIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_SERVICIO.PRO_MODIFICAR_SERVICIO">
+    <Parameter Name="S_ID" Type="number" Mode="In" />
+    <Parameter Name="S_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="S_VALOR" Type="number" Mode="In" />
+    <Parameter Name="S_ACTIVO" Type="char" Mode="In" />
+  </Function>
+  <Function Name="SGT_USUARIO_ADMIN_F_AUTENTIFICAR_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_ADMIN.F_AUTENTIFICAR_USUARIO" ReturnType="number">
+    <Parameter Name="V_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="V_PASS" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_USUARIO_ADMIN_SP_AGREGAR_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_ADMIN.SP_AGREGAR_USER">
+    <Parameter Name="U_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="U_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="U_APELLIDO" Type="varchar2" Mode="In" />
+    <Parameter Name="U_CORREO" Type="varchar2" Mode="In" />
+    <Parameter Name="U_PASS" Type="varchar2" Mode="In" />
+    <Parameter Name="U_ESTADO" Type="char" Mode="In" />
+  </Function>
+  <Function Name="SGT_USUARIO_ADMIN_SP_LISTAR_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_ADMIN.SP_LISTAR_USER" />
+  <Function Name="SGT_USUARIO_ADMIN_SP_MODIFICAR_PASS_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_ADMIN.SP_MODIFICAR_PASS_USER">
+    <Parameter Name="U_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="U_PASS_VIEJA" Type="varchar2" Mode="In" />
+    <Parameter Name="U_PASS" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_USUARIO_ADMIN_SP_MODIFICAR_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_ADMIN.SP_MODIFICAR_USER">
+    <Parameter Name="U_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="U_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="U_APELLIDO" Type="varchar2" Mode="In" />
+    <Parameter Name="U_CORREO" Type="varchar2" Mode="In" />
+    <Parameter Name="U_PASS" Type="varchar2" Mode="In" />
+    <Parameter Name="U_ESTADO" Type="char" Mode="In" />
+  </Function>
+  <Function Name="SGT_USUARIO_ADMIN_SP_MODIFICAR_USER_ESTADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_ADMIN.SP_MODIFICAR_USER_ESTADO">
+    <Parameter Name="U_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="U_ESTADO" Type="char" Mode="In" />
+  </Function>
+  <Function Name="SGT_USUARIO_ADMIN_SP_NUEVA_PASS_USER_LOCAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_ADMIN.SP_NUEVA_PASS_USER_LOCAL">
+    <Parameter Name="U_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="U_PASS" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_USUARIO_EMPRESA_F_AUTENTIFICAR_USUARIO_EM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_EMPRESA.F_AUTENTIFICAR_USUARIO_EM" ReturnType="number">
+    <Parameter Name="V_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="V_PASS" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_USUARIO_EMPRESA_PRO_AGREGAR_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_EMPRESA.PRO_AGREGAR_USUARIO">
+    <Parameter Name="EM_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="EM_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="EM_CORREO" Type="varchar2" Mode="In" />
+    <Parameter Name="EM_PASS" Type="varchar2" Mode="In" />
+    <Parameter Name="EM_ACTIVO" Type="char" Mode="In" />
+    <Parameter Name="EM_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_USUARIO_EMPRESA_PRO_MODIFICAR_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_EMPRESA.PRO_MODIFICAR_USUARIO">
+    <Parameter Name="EM_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="EM_NOMBRE" Type="varchar2" Mode="In" />
+    <Parameter Name="EM_CORREO" Type="varchar2" Mode="In" />
+    <Parameter Name="EM_PASS" Type="varchar2" Mode="In" />
+    <Parameter Name="EM_ACTIVO" Type="char" Mode="In" />
+    <Parameter Name="EM_EMP_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_USUARIO_EMPRESA_SP_LISTAR_USUARIOEMPRESA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_EMPRESA.SP_LISTAR_USUARIOEMPRESA" />
+  <Function Name="SGT_USUARIO_EMPRESA_SP_NUEVA_PASS_USER_LOCAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_USUARIO_EMPRESA.SP_NUEVA_PASS_USER_LOCAL">
+    <Parameter Name="U_RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="U_PASS" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_VALI_MEJORA_PRO_CREAR_VALI_MEJORA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_VALI_MEJORA.PRO_CREAR_VALI_MEJORA">
+    <Parameter Name="V_ID_VALI" Type="number" Mode="In" />
+    <Parameter Name="V_CORRECCION" Type="varchar2" Mode="In" />
+    <Parameter Name="V_ESTADO" Type="char" Mode="In" />
+    <Parameter Name="V_FECHA_VALI" Type="date" Mode="In" />
+    <Parameter Name="V_MEJ_ID" Type="number" Mode="In" />
+    <Parameter Name="V_PROF_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_VALI_MEJORA_PRO_MODIFICAR_VALI_MEJORA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_VALI_MEJORA.PRO_MODIFICAR_VALI_MEJORA">
+    <Parameter Name="V_ID_VALI" Type="number" Mode="In" />
+    <Parameter Name="V_CORRECCION" Type="varchar2" Mode="In" />
+    <Parameter Name="V_ESTADO" Type="char" Mode="In" />
+    <Parameter Name="V_FECHA_VALI" Type="date" Mode="In" />
+    <Parameter Name="V_MEJ_ID" Type="number" Mode="In" />
+    <Parameter Name="V_PROF_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_VISITA_PRO_CREAR_VISTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_VISITA.PRO_CREAR_VISTA">
+    <Parameter Name="V_ID" Type="number" Mode="In" />
+    <Parameter Name="V_FECHA" Type="date" Mode="In" />
+    <Parameter Name="V_HORA" Type="date" Mode="In" />
+    <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="V_REALIZADA" Type="varchar2" Mode="In" />
+    <Parameter Name="V_ASE_ID" Type="number" Mode="In" />
+    <Parameter Name="V_PRO_PROF_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SGT_VISITA_PRO_MODIFICAR_VISITA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DUOC" StoreFunctionName="SGT_VISITA.PRO_MODIFICAR_VISITA">
+    <Parameter Name="V_ID" Type="number" Mode="In" />
+    <Parameter Name="V_FECHA" Type="date" Mode="In" />
+    <Parameter Name="V_HORA" Type="date" Mode="In" />
+    <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
+    <Parameter Name="V_REALIZADA" Type="varchar2" Mode="In" />
+    <Parameter Name="V_ASE_ID" Type="number" Mode="In" />
+    <Parameter Name="V_PRO_PROF_RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="ACT_EMP" EntityType="Self.ACT_EMP" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="ACTIV_PREVENTIVA" EntityType="Self.ACTIV_PREVENTIVA" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="AREAPROF" EntityType="Self.AREAPROF" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="ASESORIA" EntityType="Self.ASESORIA" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="CANT_SERVICIO" EntityType="Self.CANT_SERVICIO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="CAPACITACION" EntityType="Self.CAPACITACION" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="CONTRATO" EntityType="Self.CONTRATO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="DETALL_RUBRO" EntityType="Self.DETALL_RUBRO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="DETALLE" EntityType="Self.DETALLE" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="INTERACCION" EntityType="Self.INTERACCION" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="LLAMADO" EntityType="Self.LLAMADO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="LOG_ACCIDENTE" EntityType="Self.LOG_ACCIDENTE" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="LOG_FECHA" EntityType="Self.LOG_FECHA" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="LOG_FIZCALI" EntityType="Self.LOG_FIZCALI" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="MATERIAL" EntityType="Self.MATERIAL" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="MEJORA" EntityType="Self.MEJORA" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="MULTA" EntityType="Self.MULTA" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="PAGO_EXTRA" EntityType="Self.PAGO_EXTRA" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="PAGOS" EntityType="Self.PAGOS" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="PROFESIONAL" EntityType="Self.PROFESIONAL" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="RUBRO" EntityType="Self.RUBRO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="USUARIO_ADMIN" EntityType="Self.USUARIO_ADMIN" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="USUARIOEMPRESA" EntityType="Self.USUARIOEMPRESA" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="VALIDAR_MEJORA" EntityType="Self.VALIDAR_MEJORA" Schema="DUOC" store:Type="Tables" />
+    <EntitySet Name="VISITA" EntityType="Self.VISITA" Schema="DUOC" store:Type="Tables" />
+    <AssociationSet Name="ACT_EMP_ACTIV_PREVENTIVA_FK" Association="Self.ACT_EMP_ACTIV_PREVENTIVA_FK">
+      <End Role="ACTIV_PREVENTIVA" EntitySet="ACTIV_PREVENTIVA" />
+      <End Role="ACT_EMP" EntitySet="ACT_EMP" />
+    </AssociationSet>
+    <AssociationSet Name="ACT_EMP_EMPRESA_FK" Association="Self.ACT_EMP_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="ACT_EMP" EntitySet="ACT_EMP" />
+    </AssociationSet>
+    <AssociationSet Name="ASESORIA_EMPRESA_FK" Association="Self.ASESORIA_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+    </AssociationSet>
+    <AssociationSet Name="CANT_SERVICIO_CONTRATO_FK" Association="Self.CANT_SERVICIO_CONTRATO_FK">
+      <End Role="CONTRATO" EntitySet="CONTRATO" />
+      <End Role="CANT_SERVICIO" EntitySet="CANT_SERVICIO" />
+    </AssociationSet>
+    <AssociationSet Name="CANT_SERVICIO_SERVICIO_FK" Association="Self.CANT_SERVICIO_SERVICIO_FK">
+      <End Role="SERVICIO" EntitySet="SERVICIO" />
+      <End Role="CANT_SERVICIO" EntitySet="CANT_SERVICIO" />
+    </AssociationSet>
+    <AssociationSet Name="CAPACITACION_EMPRESA_FK" Association="Self.CAPACITACION_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+    </AssociationSet>
+    <AssociationSet Name="CONTRATO_EMPRESA_FK" Association="Self.CONTRATO_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="CONTRATO" EntitySet="CONTRATO" />
+    </AssociationSet>
+    <AssociationSet Name="DETALL_RUBRO_EMPRESA_FK" Association="Self.DETALL_RUBRO_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="DETALL_RUBRO" EntitySet="DETALL_RUBRO" />
+    </AssociationSet>
+    <AssociationSet Name="DETALL_RUBRO_RUBRO_FK" Association="Self.DETALL_RUBRO_RUBRO_FK">
+      <End Role="RUBRO" EntitySet="RUBRO" />
+      <End Role="DETALL_RUBRO" EntitySet="DETALL_RUBRO" />
+    </AssociationSet>
+    <AssociationSet Name="DETALLE_CAPACITACION_FK" Association="Self.DETALLE_CAPACITACION_FK">
+      <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+      <End Role="DETALLE" EntitySet="DETALLE" />
+    </AssociationSet>
+    <AssociationSet Name="DETALLE_MATERIAL_FK" Association="Self.DETALLE_MATERIAL_FK">
+      <End Role="MATERIAL" EntitySet="MATERIAL" />
+      <End Role="DETALLE" EntitySet="DETALLE" />
+    </AssociationSet>
+    <AssociationSet Name="INTERACCION_ASESORIA_FK" Association="Self.INTERACCION_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="INTERACCION" EntitySet="INTERACCION" />
+    </AssociationSet>
+    <AssociationSet Name="LLAMADO_ASESORIA_FK" Association="Self.LLAMADO_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="LLAMADO" EntitySet="LLAMADO" />
+    </AssociationSet>
+    <AssociationSet Name="LLAMADO_PROFESIONAL_FK" Association="Self.LLAMADO_PROFESIONAL_FK">
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+      <End Role="LLAMADO" EntitySet="LLAMADO" />
+    </AssociationSet>
+    <AssociationSet Name="LOG_ACCIDENTE_ASESORIA_FK" Association="Self.LOG_ACCIDENTE_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="LOG_ACCIDENTE" EntitySet="LOG_ACCIDENTE" />
+    </AssociationSet>
+    <AssociationSet Name="LOG_ACCIDENTE_LOG_FECHA_FK" Association="Self.LOG_ACCIDENTE_LOG_FECHA_FK">
+      <End Role="LOG_FECHA" EntitySet="LOG_FECHA" />
+      <End Role="LOG_ACCIDENTE" EntitySet="LOG_ACCIDENTE" />
+    </AssociationSet>
+    <AssociationSet Name="LOG_FIZCALI_ASESORIA_FK" Association="Self.LOG_FIZCALI_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="LOG_FIZCALI" EntitySet="LOG_FIZCALI" />
+    </AssociationSet>
+    <AssociationSet Name="MEJORA_ASESORIA_FK" Association="Self.MEJORA_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="MEJORA" EntitySet="MEJORA" />
+    </AssociationSet>
+    <AssociationSet Name="MEJORA_PROFESIONAL_FK" Association="Self.MEJORA_PROFESIONAL_FK">
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+      <End Role="MEJORA" EntitySet="MEJORA" />
+    </AssociationSet>
+    <AssociationSet Name="MULTA_EMPRESA_FK" Association="Self.MULTA_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="MULTA" EntitySet="MULTA" />
+    </AssociationSet>
+    <AssociationSet Name="PAGO_EXTRA_EMPRESA_FK" Association="Self.PAGO_EXTRA_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="PAGO_EXTRA" EntitySet="PAGO_EXTRA" />
+    </AssociationSet>
+    <AssociationSet Name="PAGOS_EMPRESA_FK" Association="Self.PAGOS_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="PAGOS" EntitySet="PAGOS" />
+    </AssociationSet>
+    <AssociationSet Name="PROFESIONAL_AREAPROF_FK" Association="Self.PROFESIONAL_AREAPROF_FK">
+      <End Role="AREAPROF" EntitySet="AREAPROF" />
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+    </AssociationSet>
+    <AssociationSet Name="PROFESIONAL_FK" Association="Self.PROFESIONAL_FK">
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+      <End Role="ACTIV_PREVENTIVA" EntitySet="ACTIV_PREVENTIVA" />
+    </AssociationSet>
+    <AssociationSet Name="USUARIOEMPRESA_EMPRESA_FK" Association="Self.USUARIOEMPRESA_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="USUARIOEMPRESA" EntitySet="USUARIOEMPRESA" />
+    </AssociationSet>
+    <AssociationSet Name="VALIDAR_MEJORA_MEJORA_FK" Association="Self.VALIDAR_MEJORA_MEJORA_FK">
+      <End Role="MEJORA" EntitySet="MEJORA" />
+      <End Role="VALIDAR_MEJORA" EntitySet="VALIDAR_MEJORA" />
+    </AssociationSet>
+    <AssociationSet Name="VALIDAR_MEJORA_PROFESIONAL_FK" Association="Self.VALIDAR_MEJORA_PROFESIONAL_FK">
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+      <End Role="VALIDAR_MEJORA" EntitySet="VALIDAR_MEJORA" />
+    </AssociationSet>
+    <AssociationSet Name="VISITA_ASESORIA_FK" Association="Self.VISITA_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="VISITA" EntitySet="VISITA" />
+    </AssociationSet>
+    <AssociationSet Name="VISITA_PROFESIONAL_FK" Association="Self.VISITA_PROFESIONAL_FK">
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+      <End Role="VISITA" EntitySet="VISITA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

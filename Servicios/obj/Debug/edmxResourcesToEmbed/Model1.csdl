@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ACT_EMP">
+    <Key>
+      <PropertyRef Name="EMPRESA_EMP_RUT" />
+      <PropertyRef Name="ACTIV_PREVENTIVA_ACTI_ID" />
+    </Key>
+    <Property Name="FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="EFECTUADA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ACTIV_PREVENTIVA_ACTI_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="ACTIV_PREVENTIVA" Relationship="Self.ACT_EMP_ACTIV_PREVENTIVA_FK" FromRole="ACT_EMP" ToRole="ACTIV_PREVENTIVA" />
+    <NavigationProperty Name="EMPRESA" Relationship="Self.ACT_EMP_EMPRESA_FK" FromRole="ACT_EMP" ToRole="EMPRESA" />
+  </EntityType>
+  <EntityType Name="ACTIV_PREVENTIVA">
+    <Key>
+      <PropertyRef Name="ACTI_ID" />
+    </Key>
+    <Property Name="ACTI_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ACTI_DETALLE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ACTI_TIPO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ACTI_FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="ACTI_HORA" Type="DateTime" Nullable="false" />
+    <Property Name="PROF_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ACT_EMP" Relationship="Self.ACT_EMP_ACTIV_PREVENTIVA_FK" FromRole="ACTIV_PREVENTIVA" ToRole="ACT_EMP" />
+    <NavigationProperty Name="PROFESIONAL" Relationship="Self.PROFESIONAL_FK" FromRole="ACTIV_PREVENTIVA" ToRole="PROFESIONAL" />
+  </EntityType>
+  <EntityType Name="AREAPROF">
+    <Key>
+      <PropertyRef Name="AREA_ID" />
+    </Key>
+    <Property Name="AREA_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="AREA_DETALLE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PROFESIONAL" Relationship="Self.PROFESIONAL_AREAPROF_FK" FromRole="AREAPROF" ToRole="PROFESIONAL" />
+  </EntityType>
+  <EntityType Name="ASESORIA">
+    <Key>
+      <PropertyRef Name="ASES_ID" />
+    </Key>
+    <Property Name="ASES_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ASES_FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="ASES_HORA" Type="DateTime" Nullable="false" />
+    <Property Name="ASES_REALIZADA" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASES_TIPO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPRESA" Relationship="Self.ASESORIA_EMPRESA_FK" FromRole="ASESORIA" ToRole="EMPRESA" />
+    <NavigationProperty Name="INTERACCION" Relationship="Self.INTERACCION_ASESORIA_FK" FromRole="ASESORIA" ToRole="INTERACCION" />
+    <NavigationProperty Name="LLAMADO" Relationship="Self.LLAMADO_ASESORIA_FK" FromRole="ASESORIA" ToRole="LLAMADO" />
+    <NavigationProperty Name="LOG_ACCIDENTE" Relationship="Self.LOG_ACCIDENTE_ASESORIA_FK" FromRole="ASESORIA" ToRole="LOG_ACCIDENTE" />
+    <NavigationProperty Name="LOG_FIZCALI" Relationship="Self.LOG_FIZCALI_ASESORIA_FK" FromRole="ASESORIA" ToRole="LOG_FIZCALI" />
+    <NavigationProperty Name="MEJORA" Relationship="Self.MEJORA_ASESORIA_FK" FromRole="ASESORIA" ToRole="MEJORA" />
+    <NavigationProperty Name="VISITA" Relationship="Self.VISITA_ASESORIA_FK" FromRole="ASESORIA" ToRole="VISITA" />
+  </EntityType>
+  <EntityType Name="CANT_SERVICIO">
+    <Key>
+      <PropertyRef Name="CONTRATO_CONTRATO_ID" />
+      <PropertyRef Name="SERVICIO_SER_ID" />
+    </Key>
+    <Property Name="CANT_SERVICIO1" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CANT_VALOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CANT_FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="CONTRATO_CONTRATO_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SERVICIO_SER_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="CONTRATO" Relationship="Self.CANT_SERVICIO_CONTRATO_FK" FromRole="CANT_SERVICIO" ToRole="CONTRATO" />
+    <NavigationProperty Name="SERVICIO" Relationship="Self.CANT_SERVICIO_SERVICIO_FK" FromRole="CANT_SERVICIO" ToRole="SERVICIO" />
+  </EntityType>
+  <EntityType Name="CAPACITACION">
+    <Key>
+      <PropertyRef Name="CAPAC_ID" />
+    </Key>
+    <Property Name="CAPAC_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CAPAC_HORA" Type="DateTime" Nullable="false" />
+    <Property Name="CAPAC_TIPO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CAPAC_DETALLE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CAP_FECH" Type="DateTime" Nullable="false" />
+    <Property Name="CAPAC_NUM" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPRESA" Relationship="Self.CAPACITACION_EMPRESA_FK" FromRole="CAPACITACION" ToRole="EMPRESA" />
+    <NavigationProperty Name="DETALLE" Relationship="Self.DETALLE_CAPACITACION_FK" FromRole="CAPACITACION" ToRole="DETALLE" />
+  </EntityType>
+  <EntityType Name="CONTRATO">
+    <Key>
+      <PropertyRef Name="CONTRATO_ID" />
+    </Key>
+    <Property Name="CONTRATO_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CONTRATO_FECINI" Type="DateTime" Nullable="false" />
+    <Property Name="CONTRATO_FECTERMINO" Type="DateTime" Nullable="false" />
+    <Property Name="CONTRATO_ACTIVO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CANT_SERVICIO" Relationship="Self.CANT_SERVICIO_CONTRATO_FK" FromRole="CONTRATO" ToRole="CANT_SERVICIO" />
+    <NavigationProperty Name="EMPRESA" Relationship="Self.CONTRATO_EMPRESA_FK" FromRole="CONTRATO" ToRole="EMPRESA" />
+  </EntityType>
+  <EntityType Name="DETALL_RUBRO">
+    <Key>
+      <PropertyRef Name="EMPRESA_EMP_RUT" />
+      <PropertyRef Name="RUBRO_RUBRO_ID" />
+    </Key>
+    <Property Name="CANTIDAD_RUBRO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RUBRO_RUBRO_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="EMPRESA" Relationship="Self.DETALL_RUBRO_EMPRESA_FK" FromRole="DETALL_RUBRO" ToRole="EMPRESA" />
+    <NavigationProperty Name="RUBRO" Relationship="Self.DETALL_RUBRO_RUBRO_FK" FromRole="DETALL_RUBRO" ToRole="RUBRO" />
+  </EntityType>
+  <EntityType Name="DETALLE">
+    <Key>
+      <PropertyRef Name="CAPACITACION_CAPAC_ID" />
+      <PropertyRef Name="MATERIAL_MATERIAL_ID" />
+    </Key>
+    <Property Name="DETALLE_CANT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CAPACITACION_CAPAC_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MATERIAL_MATERIAL_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="CAPACITACION" Relationship="Self.DETALLE_CAPACITACION_FK" FromRole="DETALLE" ToRole="CAPACITACION" />
+    <NavigationProperty Name="MATERIAL" Relationship="Self.DETALLE_MATERIAL_FK" FromRole="DETALLE" ToRole="MATERIAL" />
+  </EntityType>
+  <EntityType Name="EMPRESA">
+    <Key>
+      <PropertyRef Name="EMP_RUT" />
+    </Key>
+    <Property Name="EMP_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_DIRECC" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_RAZONS" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_ESTADO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="EMP_TRABAJADORES" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EMP_NOM" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMP_TELEFONO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ACT_EMP" Relationship="Self.ACT_EMP_EMPRESA_FK" FromRole="EMPRESA" ToRole="ACT_EMP" />
+    <NavigationProperty Name="ASESORIA" Relationship="Self.ASESORIA_EMPRESA_FK" FromRole="EMPRESA" ToRole="ASESORIA" />
+    <NavigationProperty Name="CAPACITACION" Relationship="Self.CAPACITACION_EMPRESA_FK" FromRole="EMPRESA" ToRole="CAPACITACION" />
+    <NavigationProperty Name="CONTRATO" Relationship="Self.CONTRATO_EMPRESA_FK" FromRole="EMPRESA" ToRole="CONTRATO" />
+    <NavigationProperty Name="DETALL_RUBRO" Relationship="Self.DETALL_RUBRO_EMPRESA_FK" FromRole="EMPRESA" ToRole="DETALL_RUBRO" />
+    <NavigationProperty Name="MULTA" Relationship="Self.MULTA_EMPRESA_FK" FromRole="EMPRESA" ToRole="MULTA" />
+    <NavigationProperty Name="PAGO_EXTRA" Relationship="Self.PAGO_EXTRA_EMPRESA_FK" FromRole="EMPRESA" ToRole="PAGO_EXTRA" />
+    <NavigationProperty Name="PAGOS" Relationship="Self.PAGOS_EMPRESA_FK" FromRole="EMPRESA" ToRole="PAGOS" />
+    <NavigationProperty Name="USUARIOEMPRESA" Relationship="Self.USUARIOEMPRESA_EMPRESA_FK" FromRole="EMPRESA" ToRole="USUARIOEMPRESA" />
+  </EntityType>
+  <EntityType Name="INTERACCION">
+    <Key>
+      <PropertyRef Name="INTERA_ID" />
+    </Key>
+    <Property Name="INTERA_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="INTERA_TIPO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INTERA_FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="INTERA_DESCRIPCION" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="ASESORIA" Relationship="Self.INTERACCION_ASESORIA_FK" FromRole="INTERACCION" ToRole="ASESORIA" />
+  </EntityType>
+  <EntityType Name="LLAMADO">
+    <Key>
+      <PropertyRef Name="LLAMADA_ID" />
+    </Key>
+    <Property Name="LLAMADA_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="LLAMADA_HR_INI" Type="DateTime" Nullable="false" />
+    <Property Name="LLAMADA_HR_TERMINO" Type="DateTime" Nullable="false" />
+    <Property Name="LLAMADA_DETALLE" Type="DateTime" Nullable="false" />
+    <Property Name="LLAMADA_FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="PROFESIONAL_PROF_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="ASESORIA" Relationship="Self.LLAMADO_ASESORIA_FK" FromRole="LLAMADO" ToRole="ASESORIA" />
+    <NavigationProperty Name="PROFESIONAL" Relationship="Self.LLAMADO_PROFESIONAL_FK" FromRole="LLAMADO" ToRole="PROFESIONAL" />
+  </EntityType>
+  <EntityType Name="LOG_ACCIDENTE">
+    <Key>
+      <PropertyRef Name="LOG_ID" />
+    </Key>
+    <Property Name="LOG_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="LOG_DESCR" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LOG_HORA" Type="DateTime" Nullable="false" />
+    <Property Name="LOG_FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="LOG_FECHA_ALERTA_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="ASESORIA" Relationship="Self.LOG_ACCIDENTE_ASESORIA_FK" FromRole="LOG_ACCIDENTE" ToRole="ASESORIA" />
+    <NavigationProperty Name="LOG_FECHA1" Relationship="Self.LOG_ACCIDENTE_LOG_FECHA_FK" FromRole="LOG_ACCIDENTE" ToRole="LOG_FECHA" />
+  </EntityType>
+  <EntityType Name="LOG_FECHA">
+    <Key>
+      <PropertyRef Name="ALERTA_ID" />
+    </Key>
+    <Property Name="ALERTA_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ALERTA_NOMBRE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="LOG_ACCIDENTE" Relationship="Self.LOG_ACCIDENTE_LOG_FECHA_FK" FromRole="LOG_FECHA" ToRole="LOG_ACCIDENTE" />
+  </EntityType>
+  <EntityType Name="LOG_FIZCALI">
+    <Key>
+      <PropertyRef Name="FISCA_ID" />
+    </Key>
+    <Property Name="FISCA_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FISCA_DETALLE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FISCA_DILIGENCIA" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="Decimal" Precision="38" Scale="0" />
+    <NavigationProperty Name="ASESORIA" Relationship="Self.LOG_FIZCALI_ASESORIA_FK" FromRole="LOG_FIZCALI" ToRole="ASESORIA" />
+  </EntityType>
+  <EntityType Name="MATERIAL">
+    <Key>
+      <PropertyRef Name="MATERIAL_ID" />
+    </Key>
+    <Property Name="MATERIAL_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MATERIAL_NOMBRE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DETALLE" Relationship="Self.DETALLE_MATERIAL_FK" FromRole="MATERIAL" ToRole="DETALLE" />
+  </EntityType>
+  <EntityType Name="MEJORA">
+    <Key>
+      <PropertyRef Name="MEJORAS_ID" />
+    </Key>
+    <Property Name="MEJORAS_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MEJORAS_DETALLE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COMPLETADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PROFESIONAL_PROF_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ASESORIA" Relationship="Self.MEJORA_ASESORIA_FK" FromRole="MEJORA" ToRole="ASESORIA" />
+    <NavigationProperty Name="PROFESIONAL" Relationship="Self.MEJORA_PROFESIONAL_FK" FromRole="MEJORA" ToRole="PROFESIONAL" />
+    <NavigationProperty Name="VALIDAR_MEJORA" Relationship="Self.VALIDAR_MEJORA_MEJORA_FK" FromRole="MEJORA" ToRole="VALIDAR_MEJORA" />
+  </EntityType>
+  <EntityType Name="MULTA">
+    <Key>
+      <PropertyRef Name="MULTA_ID" />
+    </Key>
+    <Property Name="MULTA_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MULTA_MONTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MULTA_FECHORA" Type="DateTime" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPRESA" Relationship="Self.MULTA_EMPRESA_FK" FromRole="MULTA" ToRole="EMPRESA" />
+  </EntityType>
+  <EntityType Name="PAGO_EXTRA">
+    <Key>
+      <PropertyRef Name="EXTRA_ID" />
+    </Key>
+    <Property Name="EXTRA_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EXTRA_CANTIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="EXTRA_FECHAH" Type="DateTime" Nullable="false" />
+    <Property Name="EXTRA_DESCRIPCION" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPRESA" Relationship="Self.PAGO_EXTRA_EMPRESA_FK" FromRole="PAGO_EXTRA" ToRole="EMPRESA" />
+  </EntityType>
+  <EntityType Name="PAGOS">
+    <Key>
+      <PropertyRef Name="PAG_ID" />
+    </Key>
+    <Property Name="PAG_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PAG_FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="PAG_HORAS" Type="DateTime" Nullable="false" />
+    <Property Name="PAG_MONTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="PAG_FECHVENCI" Type="DateTime" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPRESA" Relationship="Self.PAGOS_EMPRESA_FK" FromRole="PAGOS" ToRole="EMPRESA" />
+  </EntityType>
+  <EntityType Name="PROFESIONAL">
+    <Key>
+      <PropertyRef Name="PROF_RUT" />
+    </Key>
+    <Property Name="PROF_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PROF_NOMBRE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PROF_APELLIDO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PROF_ACTIVO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="PROF_CORREO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PROF_PASS" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PROF_TELEFONO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AREAPROF_AREA_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="ACTIV_PREVENTIVA" Relationship="Self.PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="ACTIV_PREVENTIVA" />
+    <NavigationProperty Name="AREAPROF" Relationship="Self.PROFESIONAL_AREAPROF_FK" FromRole="PROFESIONAL" ToRole="AREAPROF" />
+    <NavigationProperty Name="LLAMADO" Relationship="Self.LLAMADO_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="LLAMADO" />
+    <NavigationProperty Name="MEJORA" Relationship="Self.MEJORA_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="MEJORA" />
+    <NavigationProperty Name="VALIDAR_MEJORA" Relationship="Self.VALIDAR_MEJORA_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="VALIDAR_MEJORA" />
+    <NavigationProperty Name="VISITA" Relationship="Self.VISITA_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="VISITA" />
+  </EntityType>
+  <EntityType Name="RUBRO">
+    <Key>
+      <PropertyRef Name="RUBRO_ID" />
+    </Key>
+    <Property Name="RUBRO_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="RUBRO_NOMBRE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DETALL_RUBRO" Relationship="Self.DETALL_RUBRO_RUBRO_FK" FromRole="RUBRO" ToRole="DETALL_RUBRO" />
+  </EntityType>
+  <EntityType Name="SERVICIO">
+    <Key>
+      <PropertyRef Name="SER_ID" />
+    </Key>
+    <Property Name="SER_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SER_NOMBRE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SER_VALOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SER_ACTIVO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CANT_SERVICIO" Relationship="Self.CANT_SERVICIO_SERVICIO_FK" FromRole="SERVICIO" ToRole="CANT_SERVICIO" />
+  </EntityType>
+  <EntityType Name="USUARIO_ADMIN">
+    <Key>
+      <PropertyRef Name="USER_RUT" />
+    </Key>
+    <Property Name="USER_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_NOMBRE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_APELLIDO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_CORREO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_PASS" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_ESTADO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIOEMPRESA">
+    <Key>
+      <PropertyRef Name="USER_RUT" />
+    </Key>
+    <Property Name="USER_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_NOMBRE" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_CORREO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_PASS" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="USER_ACTIVO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="EMPRESA_EMP_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPRESA" Relationship="Self.USUARIOEMPRESA_EMPRESA_FK" FromRole="USUARIOEMPRESA" ToRole="EMPRESA" />
+  </EntityType>
+  <EntityType Name="VALIDAR_MEJORA">
+    <Key>
+      <PropertyRef Name="ID_VALIDACION" />
+    </Key>
+    <Property Name="ID_VALIDACION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CORRECCION" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="FECHA_VALIDA" Type="DateTime" Nullable="false" />
+    <Property Name="PROFESIONAL_PROF_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MEJORA_MEJORAS_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="MEJORA" Relationship="Self.VALIDAR_MEJORA_MEJORA_FK" FromRole="VALIDAR_MEJORA" ToRole="MEJORA" />
+    <NavigationProperty Name="PROFESIONAL" Relationship="Self.VALIDAR_MEJORA_PROFESIONAL_FK" FromRole="VALIDAR_MEJORA" ToRole="PROFESIONAL" />
+  </EntityType>
+  <EntityType Name="VISITA">
+    <Key>
+      <PropertyRef Name="VISITA_ID" />
+    </Key>
+    <Property Name="VISITA_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="VISITA_FECHA" Type="DateTime" Nullable="false" />
+    <Property Name="VISITA_HORA" Type="DateTime" Nullable="false" />
+    <Property Name="VISITA_DESCRIPCION" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VISITA_REALIZADA" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PROFESIONAL_PROF_RUT" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ASESORIA_ASES_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="ASESORIA" Relationship="Self.VISITA_ASESORIA_FK" FromRole="VISITA" ToRole="ASESORIA" />
+    <NavigationProperty Name="PROFESIONAL" Relationship="Self.VISITA_PROFESIONAL_FK" FromRole="VISITA" ToRole="PROFESIONAL" />
+  </EntityType>
+  <Association Name="ACT_EMP_ACTIV_PREVENTIVA_FK">
+    <End Role="ACTIV_PREVENTIVA" Type="Self.ACTIV_PREVENTIVA" Multiplicity="1" />
+    <End Role="ACT_EMP" Type="Self.ACT_EMP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIV_PREVENTIVA">
+        <PropertyRef Name="ACTI_ID" />
+      </Principal>
+      <Dependent Role="ACT_EMP">
+        <PropertyRef Name="ACTIV_PREVENTIVA_ACTI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ACT_EMP_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="ACT_EMP" Type="Self.ACT_EMP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="ACT_EMP">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PROFESIONAL_FK">
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+    <End Role="ACTIV_PREVENTIVA" Type="Self.ACTIV_PREVENTIVA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFESIONAL">
+        <PropertyRef Name="PROF_RUT" />
+      </Principal>
+      <Dependent Role="ACTIV_PREVENTIVA">
+        <PropertyRef Name="PROF_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PROFESIONAL_AREAPROF_FK">
+    <End Role="AREAPROF" Type="Self.AREAPROF" Multiplicity="1" />
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AREAPROF">
+        <PropertyRef Name="AREA_ID" />
+      </Principal>
+      <Dependent Role="PROFESIONAL">
+        <PropertyRef Name="AREAPROF_AREA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ASESORIA_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="ASESORIA">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="INTERACCION_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="0..1" />
+    <End Role="INTERACCION" Type="Self.INTERACCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="INTERACCION">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LLAMADO_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="1" />
+    <End Role="LLAMADO" Type="Self.LLAMADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="LLAMADO">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LOG_ACCIDENTE_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="0..1" />
+    <End Role="LOG_ACCIDENTE" Type="Self.LOG_ACCIDENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="LOG_ACCIDENTE">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LOG_FIZCALI_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="0..1" />
+    <End Role="LOG_FIZCALI" Type="Self.LOG_FIZCALI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="LOG_FIZCALI">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MEJORA_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="1" />
+    <End Role="MEJORA" Type="Self.MEJORA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="MEJORA">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VISITA_ASESORIA_FK">
+    <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="1" />
+    <End Role="VISITA" Type="Self.VISITA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASESORIA">
+        <PropertyRef Name="ASES_ID" />
+      </Principal>
+      <Dependent Role="VISITA">
+        <PropertyRef Name="ASESORIA_ASES_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CANT_SERVICIO_CONTRATO_FK">
+    <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="1" />
+    <End Role="CANT_SERVICIO" Type="Self.CANT_SERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTRATO">
+        <PropertyRef Name="CONTRATO_ID" />
+      </Principal>
+      <Dependent Role="CANT_SERVICIO">
+        <PropertyRef Name="CONTRATO_CONTRATO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CANT_SERVICIO_SERVICIO_FK">
+    <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
+    <End Role="CANT_SERVICIO" Type="Self.CANT_SERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SERVICIO">
+        <PropertyRef Name="SER_ID" />
+      </Principal>
+      <Dependent Role="CANT_SERVICIO">
+        <PropertyRef Name="SERVICIO_SER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CAPACITACION_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="CAPACITACION">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_CAPACITACION_FK">
+    <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="1" />
+    <End Role="DETALLE" Type="Self.DETALLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAPACITACION">
+        <PropertyRef Name="CAPAC_ID" />
+      </Principal>
+      <Dependent Role="DETALLE">
+        <PropertyRef Name="CAPACITACION_CAPAC_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CONTRATO_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="CONTRATO">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALL_RUBRO_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="DETALL_RUBRO" Type="Self.DETALL_RUBRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="DETALL_RUBRO">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALL_RUBRO_RUBRO_FK">
+    <End Role="RUBRO" Type="Self.RUBRO" Multiplicity="1" />
+    <End Role="DETALL_RUBRO" Type="Self.DETALL_RUBRO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUBRO">
+        <PropertyRef Name="RUBRO_ID" />
+      </Principal>
+      <Dependent Role="DETALL_RUBRO">
+        <PropertyRef Name="RUBRO_RUBRO_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DETALLE_MATERIAL_FK">
+    <End Role="MATERIAL" Type="Self.MATERIAL" Multiplicity="1" />
+    <End Role="DETALLE" Type="Self.DETALLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MATERIAL">
+        <PropertyRef Name="MATERIAL_ID" />
+      </Principal>
+      <Dependent Role="DETALLE">
+        <PropertyRef Name="MATERIAL_MATERIAL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MULTA_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="MULTA" Type="Self.MULTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="MULTA">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PAGO_EXTRA_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="0..1" />
+    <End Role="PAGO_EXTRA" Type="Self.PAGO_EXTRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="PAGO_EXTRA">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PAGOS_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="PAGOS" Type="Self.PAGOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="PAGOS">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="USUARIOEMPRESA_EMPRESA_FK">
+    <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+    <End Role="USUARIOEMPRESA" Type="Self.USUARIOEMPRESA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRESA">
+        <PropertyRef Name="EMP_RUT" />
+      </Principal>
+      <Dependent Role="USUARIOEMPRESA">
+        <PropertyRef Name="EMPRESA_EMP_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LLAMADO_PROFESIONAL_FK">
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+    <End Role="LLAMADO" Type="Self.LLAMADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFESIONAL">
+        <PropertyRef Name="PROF_RUT" />
+      </Principal>
+      <Dependent Role="LLAMADO">
+        <PropertyRef Name="PROFESIONAL_PROF_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LOG_ACCIDENTE_LOG_FECHA_FK">
+    <End Role="LOG_FECHA" Type="Self.LOG_FECHA" Multiplicity="1" />
+    <End Role="LOG_ACCIDENTE" Type="Self.LOG_ACCIDENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOG_FECHA">
+        <PropertyRef Name="ALERTA_ID" />
+      </Principal>
+      <Dependent Role="LOG_ACCIDENTE">
+        <PropertyRef Name="LOG_FECHA_ALERTA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MEJORA_PROFESIONAL_FK">
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+    <End Role="MEJORA" Type="Self.MEJORA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFESIONAL">
+        <PropertyRef Name="PROF_RUT" />
+      </Principal>
+      <Dependent Role="MEJORA">
+        <PropertyRef Name="PROFESIONAL_PROF_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VALIDAR_MEJORA_MEJORA_FK">
+    <End Role="MEJORA" Type="Self.MEJORA" Multiplicity="1" />
+    <End Role="VALIDAR_MEJORA" Type="Self.VALIDAR_MEJORA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEJORA">
+        <PropertyRef Name="MEJORAS_ID" />
+      </Principal>
+      <Dependent Role="VALIDAR_MEJORA">
+        <PropertyRef Name="MEJORA_MEJORAS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VALIDAR_MEJORA_PROFESIONAL_FK">
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+    <End Role="VALIDAR_MEJORA" Type="Self.VALIDAR_MEJORA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFESIONAL">
+        <PropertyRef Name="PROF_RUT" />
+      </Principal>
+      <Dependent Role="VALIDAR_MEJORA">
+        <PropertyRef Name="PROFESIONAL_PROF_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VISITA_PROFESIONAL_FK">
+    <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+    <End Role="VISITA" Type="Self.VISITA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROFESIONAL">
+        <PropertyRef Name="PROF_RUT" />
+      </Principal>
+      <Dependent Role="VISITA">
+        <PropertyRef Name="PROFESIONAL_PROF_RUT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACT_EMP" EntityType="Self.ACT_EMP" />
+    <EntitySet Name="ACTIV_PREVENTIVA" EntityType="Self.ACTIV_PREVENTIVA" />
+    <EntitySet Name="AREAPROF" EntityType="Self.AREAPROF" />
+    <EntitySet Name="ASESORIA" EntityType="Self.ASESORIA" />
+    <EntitySet Name="CANT_SERVICIO" EntityType="Self.CANT_SERVICIO" />
+    <EntitySet Name="CAPACITACION" EntityType="Self.CAPACITACION" />
+    <EntitySet Name="CONTRATO" EntityType="Self.CONTRATO" />
+    <EntitySet Name="DETALL_RUBRO" EntityType="Self.DETALL_RUBRO" />
+    <EntitySet Name="DETALLE" EntityType="Self.DETALLE" />
+    <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" />
+    <EntitySet Name="INTERACCION" EntityType="Self.INTERACCION" />
+    <EntitySet Name="LLAMADO" EntityType="Self.LLAMADO" />
+    <EntitySet Name="LOG_ACCIDENTE" EntityType="Self.LOG_ACCIDENTE" />
+    <EntitySet Name="LOG_FECHA" EntityType="Self.LOG_FECHA" />
+    <EntitySet Name="LOG_FIZCALI" EntityType="Self.LOG_FIZCALI" />
+    <EntitySet Name="MATERIAL" EntityType="Self.MATERIAL" />
+    <EntitySet Name="MEJORA" EntityType="Self.MEJORA" />
+    <EntitySet Name="MULTA" EntityType="Self.MULTA" />
+    <EntitySet Name="PAGO_EXTRA" EntityType="Self.PAGO_EXTRA" />
+    <EntitySet Name="PAGOS" EntityType="Self.PAGOS" />
+    <EntitySet Name="PROFESIONAL" EntityType="Self.PROFESIONAL" />
+    <EntitySet Name="RUBRO" EntityType="Self.RUBRO" />
+    <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" />
+    <EntitySet Name="USUARIO_ADMIN" EntityType="Self.USUARIO_ADMIN" />
+    <EntitySet Name="USUARIOEMPRESA" EntityType="Self.USUARIOEMPRESA" />
+    <EntitySet Name="VALIDAR_MEJORA" EntityType="Self.VALIDAR_MEJORA" />
+    <EntitySet Name="VISITA" EntityType="Self.VISITA" />
+    <AssociationSet Name="ACT_EMP_ACTIV_PREVENTIVA_FK" Association="Self.ACT_EMP_ACTIV_PREVENTIVA_FK">
+      <End Role="ACTIV_PREVENTIVA" EntitySet="ACTIV_PREVENTIVA" />
+      <End Role="ACT_EMP" EntitySet="ACT_EMP" />
+    </AssociationSet>
+    <AssociationSet Name="ACT_EMP_EMPRESA_FK" Association="Self.ACT_EMP_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="ACT_EMP" EntitySet="ACT_EMP" />
+    </AssociationSet>
+    <AssociationSet Name="PROFESIONAL_FK" Association="Self.PROFESIONAL_FK">
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+      <End Role="ACTIV_PREVENTIVA" EntitySet="ACTIV_PREVENTIVA" />
+    </AssociationSet>
+    <AssociationSet Name="PROFESIONAL_AREAPROF_FK" Association="Self.PROFESIONAL_AREAPROF_FK">
+      <End Role="AREAPROF" EntitySet="AREAPROF" />
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+    </AssociationSet>
+    <AssociationSet Name="ASESORIA_EMPRESA_FK" Association="Self.ASESORIA_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+    </AssociationSet>
+    <AssociationSet Name="INTERACCION_ASESORIA_FK" Association="Self.INTERACCION_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="INTERACCION" EntitySet="INTERACCION" />
+    </AssociationSet>
+    <AssociationSet Name="LLAMADO_ASESORIA_FK" Association="Self.LLAMADO_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="LLAMADO" EntitySet="LLAMADO" />
+    </AssociationSet>
+    <AssociationSet Name="LOG_ACCIDENTE_ASESORIA_FK" Association="Self.LOG_ACCIDENTE_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="LOG_ACCIDENTE" EntitySet="LOG_ACCIDENTE" />
+    </AssociationSet>
+    <AssociationSet Name="LOG_FIZCALI_ASESORIA_FK" Association="Self.LOG_FIZCALI_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="LOG_FIZCALI" EntitySet="LOG_FIZCALI" />
+    </AssociationSet>
+    <AssociationSet Name="MEJORA_ASESORIA_FK" Association="Self.MEJORA_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="MEJORA" EntitySet="MEJORA" />
+    </AssociationSet>
+    <AssociationSet Name="VISITA_ASESORIA_FK" Association="Self.VISITA_ASESORIA_FK">
+      <End Role="ASESORIA" EntitySet="ASESORIA" />
+      <End Role="VISITA" EntitySet="VISITA" />
+    </AssociationSet>
+    <AssociationSet Name="CANT_SERVICIO_CONTRATO_FK" Association="Self.CANT_SERVICIO_CONTRATO_FK">
+      <End Role="CONTRATO" EntitySet="CONTRATO" />
+      <End Role="CANT_SERVICIO" EntitySet="CANT_SERVICIO" />
+    </AssociationSet>
+    <AssociationSet Name="CANT_SERVICIO_SERVICIO_FK" Association="Self.CANT_SERVICIO_SERVICIO_FK">
+      <End Role="SERVICIO" EntitySet="SERVICIO" />
+      <End Role="CANT_SERVICIO" EntitySet="CANT_SERVICIO" />
+    </AssociationSet>
+    <AssociationSet Name="CAPACITACION_EMPRESA_FK" Association="Self.CAPACITACION_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+    </AssociationSet>
+    <AssociationSet Name="DETALLE_CAPACITACION_FK" Association="Self.DETALLE_CAPACITACION_FK">
+      <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+      <End Role="DETALLE" EntitySet="DETALLE" />
+    </AssociationSet>
+    <AssociationSet Name="CONTRATO_EMPRESA_FK" Association="Self.CONTRATO_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="CONTRATO" EntitySet="CONTRATO" />
+    </AssociationSet>
+    <AssociationSet Name="DETALL_RUBRO_EMPRESA_FK" Association="Self.DETALL_RUBRO_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="DETALL_RUBRO" EntitySet="DETALL_RUBRO" />
+    </AssociationSet>
+    <AssociationSet Name="DETALL_RUBRO_RUBRO_FK" Association="Self.DETALL_RUBRO_RUBRO_FK">
+      <End Role="RUBRO" EntitySet="RUBRO" />
+      <End Role="DETALL_RUBRO" EntitySet="DETALL_RUBRO" />
+    </AssociationSet>
+    <AssociationSet Name="DETALLE_MATERIAL_FK" Association="Self.DETALLE_MATERIAL_FK">
+      <End Role="MATERIAL" EntitySet="MATERIAL" />
+      <End Role="DETALLE" EntitySet="DETALLE" />
+    </AssociationSet>
+    <AssociationSet Name="MULTA_EMPRESA_FK" Association="Self.MULTA_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="MULTA" EntitySet="MULTA" />
+    </AssociationSet>
+    <AssociationSet Name="PAGO_EXTRA_EMPRESA_FK" Association="Self.PAGO_EXTRA_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="PAGO_EXTRA" EntitySet="PAGO_EXTRA" />
+    </AssociationSet>
+    <AssociationSet Name="PAGOS_EMPRESA_FK" Association="Self.PAGOS_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="PAGOS" EntitySet="PAGOS" />
+    </AssociationSet>
+    <AssociationSet Name="USUARIOEMPRESA_EMPRESA_FK" Association="Self.USUARIOEMPRESA_EMPRESA_FK">
+      <End Role="EMPRESA" EntitySet="EMPRESA" />
+      <End Role="USUARIOEMPRESA" EntitySet="USUARIOEMPRESA" />
+    </AssociationSet>
+    <AssociationSet Name="LLAMADO_PROFESIONAL_FK" Association="Self.LLAMADO_PROFESIONAL_FK">
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+      <End Role="LLAMADO" EntitySet="LLAMADO" />
+    </AssociationSet>
+    <AssociationSet Name="LOG_ACCIDENTE_LOG_FECHA_FK" Association="Self.LOG_ACCIDENTE_LOG_FECHA_FK">
+      <End Role="LOG_FECHA" EntitySet="LOG_FECHA" />
+      <End Role="LOG_ACCIDENTE" EntitySet="LOG_ACCIDENTE" />
+    </AssociationSet>
+    <AssociationSet Name="MEJORA_PROFESIONAL_FK" Association="Self.MEJORA_PROFESIONAL_FK">
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+      <End Role="MEJORA" EntitySet="MEJORA" />
+    </AssociationSet>
+    <AssociationSet Name="VALIDAR_MEJORA_MEJORA_FK" Association="Self.VALIDAR_MEJORA_MEJORA_FK">
+      <End Role="MEJORA" EntitySet="MEJORA" />
+      <End Role="VALIDAR_MEJORA" EntitySet="VALIDAR_MEJORA" />
+    </AssociationSet>
+    <AssociationSet Name="VALIDAR_MEJORA_PROFESIONAL_FK" Association="Self.VALIDAR_MEJORA_PROFESIONAL_FK">
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+      <End Role="VALIDAR_MEJORA" EntitySet="VALIDAR_MEJORA" />
+    </AssociationSet>
+    <AssociationSet Name="VISITA_PROFESIONAL_FK" Association="Self.VISITA_PROFESIONAL_FK">
+      <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+      <End Role="VISITA" EntitySet="VISITA" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
