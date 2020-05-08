@@ -32,67 +32,54 @@ namespace Webpage_Nma
 
             string Rut = txtRut.Text;
             string pass = txtClave.Text;
-
-            if (string.IsNullOrEmpty(Rut))
+            try
             {
-                Response.Write("<script>alert('Rut no Puede estar nulo');</script>");
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(pass))
+                if (string.IsNullOrEmpty(Rut))
                 {
-                    Response.Write("<script>alert('Contraseña no Puede estar nulo');</script>");
+                    throw new Exception("El rut no puede estar vacío");
                 }
                 else
                 {
-                    if (client.validarRut(Rut) == false)
+                    if (string.IsNullOrEmpty(pass))
                     {
-
-                        Response.Write("<script>alert('Debe ingresar un rut valido');</script>");
+                        throw new Exception("La contraseña no puede estar vacía");
                     }
                     else
                     {
-                        if (client.login(Rut, pass).Length > 0)
+                        if (client.validarRut(Rut) == false)
                         {
-                            foreach (var i in client.login(Rut, pass))
+
+                            throw new Exception("Debe ingresar un Rut válido");
+                        }
+                        else
+                        {
+                            if (client.login(Rut, pass).Length > 0)
                             {
-                                W_NMA.USUARIOEMPRESA emp = new W_NMA.USUARIOEMPRESA()
+                                foreach (var i in client.login(Rut, pass))
                                 {
-                                    USER_RUT = i.USER_RUT.ToString(),
-                                    USER_NOMBRE = i.USER_NOMBRE.ToString(),
-                                    USER_CORREO = i.USER_CORREO.ToString(),
-                                    USER_PASS = i.USER_PASS.ToString(),
-                                    USER_ACTIVO = i.USER_ACTIVO.ToString(),
-                                    EMPRESA_EMP_RUT = i.EMPRESA_EMP_RUT.ToString(),
-                                    USER_ROL = i.USER_ROL.ToString(),
-                                    USER_TELEFONO = i.USER_TELEFONO.ToString(),
-                                };
-
-                                string rol = emp.USER_ROL;
-                                string rut = emp.USER_RUT;
-                                string correo = emp.USER_CORREO;
-                                string nombre = emp.USER_NOMBRE;
-                                string passw = emp.USER_PASS;
-                                string telefono = emp.USER_TELEFONO;
-                                string empresa = emp.EMPRESA_EMP_RUT;
-                                if (rol.Equals("Profesional"))
-                                {
-                                    Response.Write("<script>alert('Funciono conchetumare');window.location = 'profesionales/panelProfesional.aspx';</script>");
-
-
-                                    System.Web.HttpContext.Current.Session["UserRut"] = rut;
-                                    System.Web.HttpContext.Current.Session["UserCorreo"] = correo;
-                                    System.Web.HttpContext.Current.Session["UserNombre"] = nombre;
-                                    System.Web.HttpContext.Current.Session["UserPass"] = passw;
-                                    System.Web.HttpContext.Current.Session["UserTelefono"] = telefono;
-                                    System.Web.HttpContext.Current.Session["EMPRESA_EMP_RUT"] = empresa;
-
-
-                                }
-                                else
-                                {
-                                    if (rol.Equals("Usuario"))
+                                    W_NMA.USUARIOEMPRESA emp = new W_NMA.USUARIOEMPRESA()
                                     {
+                                        USER_RUT = i.USER_RUT.ToString(),
+                                        USER_NOMBRE = i.USER_NOMBRE.ToString(),
+                                        USER_CORREO = i.USER_CORREO.ToString(),
+                                        USER_PASS = i.USER_PASS.ToString(),
+                                        USER_ACTIVO = i.USER_ACTIVO.ToString(),
+                                        EMPRESA_EMP_RUT = i.EMPRESA_EMP_RUT.ToString(),
+                                        USER_ROL = i.USER_ROL.ToString(),
+                                        USER_TELEFONO = i.USER_TELEFONO.ToString(),
+                                    };
+
+                                    string rol = emp.USER_ROL;
+                                    string rut = emp.USER_RUT;
+                                    string correo = emp.USER_CORREO;
+                                    string nombre = emp.USER_NOMBRE;
+                                    string passw = emp.USER_PASS;
+                                    string telefono = emp.USER_TELEFONO;
+                                    string empresa = emp.EMPRESA_EMP_RUT;
+                                    if (rol.Equals("Profesional"))
+                                    {
+                                        Response.Write("<script>alert('Funciono conchetumare');window.location = 'profesionales/panelProfesional.aspx';</script>");
+
 
                                         System.Web.HttpContext.Current.Session["UserRut"] = rut;
                                         System.Web.HttpContext.Current.Session["UserCorreo"] = correo;
@@ -100,19 +87,36 @@ namespace Webpage_Nma
                                         System.Web.HttpContext.Current.Session["UserPass"] = passw;
                                         System.Web.HttpContext.Current.Session["UserTelefono"] = telefono;
                                         System.Web.HttpContext.Current.Session["EMPRESA_EMP_RUT"] = empresa;
-                                        Response.Write("<script>alert('Funciono conchetumare');window.location = 'Cliente/panel.aspx';</script>");
+
+
+                                    }
+                                    else
+                                    {
+                                        if (rol.Equals("Usuario"))
+                                        {
+
+                                            System.Web.HttpContext.Current.Session["UserRut"] = rut;
+                                            System.Web.HttpContext.Current.Session["UserCorreo"] = correo;
+                                            System.Web.HttpContext.Current.Session["UserNombre"] = nombre;
+                                            System.Web.HttpContext.Current.Session["UserPass"] = passw;
+                                            System.Web.HttpContext.Current.Session["UserTelefono"] = telefono;
+                                            System.Web.HttpContext.Current.Session["EMPRESA_EMP_RUT"] = empresa;
+                                            Response.Write("<script>alert('Funciono conchetumare');window.location = 'Cliente/panel.aspx';</script>");
+                                        }
                                     }
                                 }
                             }
                         }
-                        else
-                        {
-                            Response.Write("<script>alert('Rut no existe o se encuentra inactivo');window.location = 'login.aspx';</script>");
-                        }
-                    }
 
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+
+                Label4.Text = ex.Message;
+            }
+            
 
         }
     }

@@ -14,9 +14,6 @@ namespace Webpage_Nma
                  
         }
 
-        protected void btn1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

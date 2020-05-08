@@ -46,9 +46,14 @@
                                     </div>
                                     <h5>Ingresa a tu cuenta</h5>
                                      <form runat="server" id="form2" class="login-form">
+                                        <div class="text-center " role="alertdialog">
+                                                    <asp:Label ID="Label4" runat="server" Text="" ForeColor="Red"></asp:Label>
+                                        </div>
+
                                         <div class="auto-style1">
                                             <asp:Label ID="Label1" runat="server" Text="Rut:"></asp:Label><br />
                                             <asp:Textbox ID="txtRut"  type="text" runat="server" class="input-bordered" OnTextChanged="txtnombre_TextChanged"></asp:Textbox>
+                                        </div>
                                         <div class="input-item">
                                             <asp:Label ID="Label2" runat="server" Text="Contraseña"></asp:Label><br />
                                              <asp:TextBox ID="txtClave"  type="password" runat="server" class="input-bordered" OnTextChanged="txtnombre_TextChanged"></asp:TextBox>

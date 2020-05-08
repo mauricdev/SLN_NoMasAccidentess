@@ -49,7 +49,7 @@
                                     <li class="nav-item"><a class="nav-link menu-link" href="#intro">Quienes somos?<span class="sr-only">(current)</span></a></li>
                                     <li class="nav-item"><a class="nav-link menu-link" href="#tokenSale">Servicio</a></li>
                                     <li class="nav-item"><a class="nav-link menu-link" href="#team">Equipo</a></li>
-                                    <li class="nav-item"><a class="nav-link menu-link" href="#contact">Contacto</a></li>
+                                    <li class="nav-item"><a class="nav-link menu-link" href="Contacto.aspx">Contacto</a></li>
                                 </ul>
                                 <ul class="navbar-nav navbar-btns animated" data-animate="fadeInDown" data-delay="1.15">
                                     <li class="nav-item"><a class="nav-link btn btn-sm btn-outline menu-link" href="login.aspx">Ingresa</a></li>
@@ -350,74 +350,6 @@
         </div>
                 </div>
                 <!-- End Section -->
-        <!-- Start Section -->
-        <div class="section section-pad section-bg-alt section-fix" id="contact">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col">
-                        <div class="section-head">
-                            <h2 class="section-title animated" data-animate="fadeInUp" data-delay="0">Contacto
-							<span>Segurito</span>
-                            </h2>
-                            <p class="animated" data-animate="fadeInUp" data-delay=".1">Quieres conocer más  acerca de nuestros servicios? Envia un mensaje en el siguiente formulario.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <form id="contact-form" class="form-message text-center" action="form/contact.php" method="post">
-                            <div class="row">
-
-                  
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <asp:Textbox ID="txtNombre" type="text" runat="server" name="nombre" class="form-control"></asp:Textbox>
-                            <label for="name" class="">Tu nombre</label>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <asp:Textbox ID="txtCorreo" type="text" runat="server" name="correo" class="form-control"></asp:Textbox>
-                            <label for="email" class="">Tu correo</label>
-                        </div>
-                    </div>
-                            </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <div class="md-form">
-                            <asp:Textbox ID="txtMensaje" type="text" runat="server" name="mensaje" class="form-control" TextMode="MultiLine"></asp:Textbox>
-                            <label for="message">Mensaje</label>
-                        </div>
-
-                    </div>
-                </div>
-
-                    </form>
-
-                        <div class="text-center ">
-                            <asp:Button class="btn btn-primary" id="btn1"  runat="server" Text="Enviar" OnClick="btn1_Click" ValidationGroup="1" />
-                        </div>
-                        <div class="status"></div>
-                 </div>
-
-             </div>
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <ul class="contact-info">
-                            <li class="animated" data-animate="fadeInUp" data-delay="0"><em class="fa fa-phone"></em><span>+56999999999</span></li>
-                            <li class="animated" data-animate="fadeInUp" data-delay=".1"><em class="fa fa-envelope"></em><span>correo@segurito.com</span></li>
-                            <li class="animated" data-animate="fadeInUp" data-delay=".2"><em class="fa fa-paper-plane"></em><span>Unete a Telegram</span></li>
-                        </ul>
-                    </div>
-                </div>
-                     
-            </div>
-        </div>
-        <!-- End Section -->
 
 
         <!-- Start Section -->

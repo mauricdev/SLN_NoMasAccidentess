@@ -83,7 +83,7 @@ namespace Webpage_Nma.Cliente
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "')</script>");
+                Label4.Text = ex.Message;
             }
         
 

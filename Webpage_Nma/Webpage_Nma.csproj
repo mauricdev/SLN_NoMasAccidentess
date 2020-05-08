@@ -198,6 +198,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Contacto.aspx" />
     <Content Include="Formulario web1.aspx" />
     <Content Include="images\blog-large-a.jpg" />
     <Content Include="images\blog-thumb-a.jpg" />
@@ -469,6 +470,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Contacto.aspx.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contacto.aspx.designer.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Formulario web1.aspx.cs">
       <DependentUpon>Formulario web1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -526,7 +534,6 @@
     <Compile Include="Site2.Master.designer.cs">
       <DependentUpon>Site2.Master</DependentUpon>
     </Compile>
-    <Compile Include="test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\fonts\fa-brands-400.eot" />

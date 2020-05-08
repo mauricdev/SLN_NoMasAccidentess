@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="/assets2/css/vendor.bundle.css?ver=101">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="/assets2/css/style.css?ver=101">
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/signup-form.js"></script>
 </head>
 <body>
     <form runat="server">

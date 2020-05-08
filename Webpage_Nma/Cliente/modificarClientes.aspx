@@ -62,6 +62,11 @@
                                     <div class="tab-content" id="myTabContent">
                                         <div class="tab-pane fade show active" id="personal-data">
                                               <form  id="form2">
+
+                                                  <div class="text-center " role="alertdialog">
+                                                    <asp:Label ID="Label4" runat="server" Text="" ForeColor="Red"></asp:Label>
+                                                </div>
+
                                                 <div class="input-item input-with-label">
                                                     <label for="full-name" class="input-item-label">Nombre</label>
                                                  <asp:Textbox ID="txtnombre" type="text" runat="server" class="input-bordered" OnTextChanged="txtnombre_TextChanged"></asp:Textbox>
