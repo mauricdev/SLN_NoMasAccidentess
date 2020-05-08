@@ -13,7 +13,7 @@ namespace Webpage_Nma
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            divmas.Style["Visibility"] = "hidden";
         }
 
         protected void btn1_Click(object sender, EventArgs e)
@@ -67,6 +67,7 @@ namespace Webpage_Nma
             }
             catch (Exception ex)
             {
+                divmas.Style["Visibility"] = "visible";
                 Label4.Text = (ex.Message);
             }
 

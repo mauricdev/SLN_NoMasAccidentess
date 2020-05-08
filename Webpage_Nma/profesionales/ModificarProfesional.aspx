@@ -63,34 +63,39 @@
                                     <div class="tab-pane fade show active" id="personal-data">
                                         <br />
                                         <form id="form1">
-                                            <div class="text-center " role="alertdialog">
-                                                    <asp:Label ID="Label4" runat="server" Text="" ForeColor="Red"></asp:Label>
-                                                </div>
+                                            <div id="divmas" runat="server" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <strong>
+                                                    <asp:Label ID="Label4" Text="" runat="server" />
+                                                </strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
 
                                             <div class="input-item input-with-label">
                                                 <label for="full-name" class="input-item-label">Nombre</label>
-                                                <asp:TextBox ID="txtnombre" type="text" runat="server" class="input-bordered" OnTextChanged="txtnombre_TextChanged"></asp:TextBox>
+                                                <asp:TextBox ID="txtnombre" type="text" runat="server" class="input-bordered" OnTextChanged="txtnombre_TextChanged" required="true"></asp:TextBox>
                                             </div>
                                             <!-- .input-item -->
                                             <!-- .input-item -->
                                             <div class="input-item input-with-label">
                                                 <label for="email-address" class="input-item-label">Correo</label>
-                                                <asp:TextBox ID="TextCorreo" type="Email" runat="server" class="input-bordered"></asp:TextBox>
+                                                <asp:TextBox ID="TextCorreo" type="Email" runat="server" class="input-bordered" required="true"></asp:TextBox>
                                             </div>
                                             <div class="input-item input-with-label">
                                                 <label for="sur-name" class="input-item-label">Contraseña</label>
-                                                <asp:TextBox ID="TextApellido" type="password" runat="server" class="input-bordered"></asp:TextBox>
+                                                <asp:TextBox ID="TextApellido" type="password" runat="server" class="input-bordered" required="true"></asp:TextBox>
                                             </div>
                                             <!-- .input-item -->
                                             <div class="input-item input-with-label">
                                                 <label for="mobile-number" class="input-item-label">Telefono</label>
-                                                <asp:TextBox ID="TextNumber" type="text" runat="server" class="input-bordered"></asp:TextBox>
+                                                <asp:TextBox ID="TextNumber" type="text" runat="server" class="input-bordered" required="true"></asp:TextBox>
                                             </div>
                                             <!-- .input-item -->
                                             <div class="gaps-1x"></div>
                                             <!-- 10px gap -->
                                             <div class="d-sm-flex justify-content-between align-items-center">
-                                                <asp:Button class="btn btn-primary" ID="btn1" runat="server" Text="Actulizar" OnClick="btn1_Click" />
+                                                <asp:Button class="btn btn-primary" ID="btn1" runat="server" Text="Actualizar" OnClick="btn1_Click" />
                                                 <div class="gaps-2x d-sm-none"></div>
                                             </div>
                                         </form>

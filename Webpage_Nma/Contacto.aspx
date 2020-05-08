@@ -73,9 +73,14 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
 
-                       <div class="text-center " role="alertdialog">
-                             <asp:Label ID="Label4" runat="server" Text="" ForeColor="#f9fc32"></asp:Label>
-                           </div>
+                        <div id="divmas" runat="server" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>
+                                <asp:Label ID="Label4" Text="" runat="server" />
+                            </strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
 
                         <form id="contact-form" class="form-message text-center" action="form/contact.php" method="get">
                             <div class="row">
@@ -83,7 +88,7 @@
                   
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <asp:Textbox ID="txtNombre" type="text" runat="server" name="nombre" class="form-control"></asp:Textbox>
+                            <asp:Textbox ID="txtNombre" type="text" runat="server" name="nombre" class="form-control" required="true"></asp:Textbox>
                             <label for="name" class="">Tu nombre</label>
 
                         </div>
@@ -91,7 +96,7 @@
 
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <asp:Textbox ID="txtCorreo" type="text" runat="server" name="correo" class="form-control"></asp:Textbox>
+                            <asp:Textbox ID="txtCorreo" type="text" runat="server" name="correo" class="form-control" required="true"></asp:Textbox>
                             <label for="email" class="">Tu correo</label>
                         </div>
                     </div>
@@ -101,7 +106,7 @@
                     <div class="col-md-12">
 
                         <div class="md-form">
-                            <asp:Textbox ID="txtMensaje" type="text" runat="server" name="mensaje" class="form-control" TextMode="MultiLine"></asp:Textbox>
+                            <asp:Textbox ID="txtMensaje" type="text" runat="server" name="mensaje" class="form-control" TextMode="MultiLine" required="true"></asp:Textbox>
                             <label for="message">Mensaje</label>
                         </div>
                     </div>

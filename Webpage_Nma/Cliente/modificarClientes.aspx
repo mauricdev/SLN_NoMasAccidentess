@@ -63,27 +63,32 @@
                                         <div class="tab-pane fade show active" id="personal-data">
                                               <form  id="form2">
 
-                                                  <div class="text-center " role="alertdialog">
-                                                    <asp:Label ID="Label4" runat="server" Text="" ForeColor="Red"></asp:Label>
-                                                </div>
+                                                  <div id="divmas" runat="server" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                      <strong>
+                                                          <asp:Label ID="Label4" Text="" runat="server" />
+                                                      </strong>
+                                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                          <span aria-hidden="true">&times;</span>
+                                                      </button>
+                                                  </div>
 
                                                 <div class="input-item input-with-label">
                                                     <label for="full-name" class="input-item-label">Nombre</label>
-                                                 <asp:Textbox ID="txtnombre" type="text" runat="server" class="input-bordered" OnTextChanged="txtnombre_TextChanged"></asp:Textbox>
+                                                 <asp:Textbox ID="txtnombre" type="text" runat="server" class="input-bordered" OnTextChanged="txtnombre_TextChanged" required="true"></asp:Textbox>
                                                 </div>
                                                 <!-- .input-item -->
                                                 <div class="input-item input-with-label">
                                                     <label for="email-address" class="input-item-label">Correo</label>
-                                                    <asp:Textbox ID="TextCorreo" type="Email" runat="server" class="input-bordered"></asp:Textbox>
+                                                    <asp:Textbox ID="TextCorreo" type="Email" runat="server" class="input-bordered" required="true"></asp:Textbox>
                                                 </div>
                                                    <div class="input-item input-with-label">
                                                     <label for="sur-name" class="input-item-label">Contraseña</label>
-                                                    <asp:Textbox ID="TextApellido" type="password" runat="server" class="input-bordered"></asp:Textbox>
+                                                    <asp:Textbox ID="TextApellido" type="password" runat="server" class="input-bordered" required="true"></asp:Textbox>
                                                 </div>
                                                 <!-- .input-item -->
                                                 <div class="input-item input-with-label">
                                                     <label for="mobile-number" class="input-item-label">Telefono</label>
-                                                    <asp:Textbox ID="TextNumber" type="text" runat="server" class="input-bordered"></asp:Textbox>
+                                                    <asp:Textbox ID="TextNumber" type="text" runat="server" class="input-bordered" required="true"></asp:Textbox>
                                                 </div>
                                                 <!-- .input-item -->
                                                 <div class="gaps-1x"></div>

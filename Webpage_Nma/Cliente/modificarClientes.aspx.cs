@@ -13,6 +13,7 @@ namespace Webpage_Nma.Cliente
         W_NMA.Service1Client client = new W_NMA.Service1Client();
         protected void Page_Load(object sender, EventArgs e)
         {
+            divmas.Style["Visibility"] = "hidden";
             string rut = System.Web.HttpContext.Current.Session["UserRut"].ToString();
             string correo = System.Web.HttpContext.Current.Session["UserCorreo"].ToString();
             string nombre = System.Web.HttpContext.Current.Session["UserNombre"].ToString();
@@ -83,6 +84,7 @@ namespace Webpage_Nma.Cliente
             }
             catch (Exception ex)
             {
+                divmas.Style["Visibility"] = "Visible";
                 Label4.Text = ex.Message;
             }
         
