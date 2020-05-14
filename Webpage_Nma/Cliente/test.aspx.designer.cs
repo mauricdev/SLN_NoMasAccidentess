@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Webpage_Nma
+namespace Webpage_Nma.Cliente
 {
 
 
-    public partial class WebForm1
+    public partial class test
     {
 
         /// <summary>
@@ -22,5 +22,14 @@ namespace Webpage_Nma
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// Control label4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label4;
     }
 }

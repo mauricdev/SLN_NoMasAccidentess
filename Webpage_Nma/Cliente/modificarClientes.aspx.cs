@@ -13,6 +13,7 @@ namespace Webpage_Nma.Cliente
         W_NMA.Service1Client client = new W_NMA.Service1Client();
         protected void Page_Load(object sender, EventArgs e)
         {
+            divmas.Style["Visibility"] = "hidden";
             string rut = System.Web.HttpContext.Current.Session["UserRut"].ToString();
             string correo = System.Web.HttpContext.Current.Session["UserCorreo"].ToString();
             string nombre = System.Web.HttpContext.Current.Session["UserNombre"].ToString();
@@ -71,7 +72,6 @@ namespace Webpage_Nma.Cliente
                 string numeros = TextNumber.Text;
 
                 client.modificarUsuario(rut, name, correos, pass, "1", empresa, numeros);
-
                 System.Web.HttpContext.Current.Session["UserCorreo"] = correos;
                 System.Web.HttpContext.Current.Session["UserNombre"] = name;
                 System.Web.HttpContext.Current.Session["UserPass"] = pass;
@@ -83,7 +83,8 @@ namespace Webpage_Nma.Cliente
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "')</script>");
+                divmas.Style["Visibility"] = "Visible";
+                Label4.Text = ex.Message;
             }
         
 

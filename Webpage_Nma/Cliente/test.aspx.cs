@@ -5,15 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Webpage_Nma
+namespace Webpage_Nma.Cliente
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class test : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-                 
-        }
+            label4.Text = Request.QueryString["Id"];
 
-        
+        }
     }
 }

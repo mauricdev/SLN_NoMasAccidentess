@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="infoCliente.aspx.cs" Inherits="Webpage_Nma.infoCliente" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="infoCliente.aspx.cs" Inherits="Webpage_Nma.infoCliente" EnableEventValidation="true"%>
 
 
 
@@ -8,8 +8,6 @@
 
         <div>
             <body class="user-dashboard">
-               
-
                 <div class="user-wraper">
                     <div class="container">
                         <div class="d-flex">
@@ -19,12 +17,13 @@
                                     <div class="user-image">
                                         <img src="/images/user-thumb-lg.png" alt="thumb">
                                     </div>
-                                    <h6 class="user-name">Stefan Harary</h6>
+                                        <h6 class="user-dropdown-name"><asp:Label runat ="server" ID="label1"></asp:Label></h6>
+                                        <h5 class="user-dropdown-email"><asp:Label runat ="server" ID="label2"></asp:Label></h5>
                                 </div>
                                 <!-- .user-box -->
                                 <ul class="user-icon-nav">
                                     <li><a href="panel.aspx"><em class="ti ti-dashboard"></em>Inicio</a></li>
-                                    <li><a href="infoClientes.aspx"><em class="ti ti-pie-chart"></em>Estadisticas</a></li>
+                                    <li><a href="infoCliente.aspx"><em class="ti ti-pie-chart"></em>Estadisticas</a></li>
                                     <li><a href="ModificarClientes.aspx"><em class="ti ti-user"></em>Cuenta</a></li>
                                 </ul>
                                 <!-- .user-icon-nav -->
@@ -51,73 +50,58 @@
 
                             <div class="user-content">
                                 <div class="user-panel">
-                                    <div class="row">
-                                        <!-- .col -->
-                                    </div>
-                                    <!-- .info-card 
-                                    <div class="token-card">
-                                        <div class="token-info">
-                                            <span class="token-smartag">Tus pago</span>
-                                            <h2 class="token-bonus"><span>Fecha de inicio del plan</span></h2>
-                                            <ul class="token-timeline">
-                                                <li><span>START DATE</span>14 Jul 2018</li>
-                                                <li><span>END DATE</span>25 Aug 2018</li>
-                                            </ul>
-                                        </div>
-                                        <div class="token-countdown">
-                                            <span class="token-countdown-title">THE BONUS END IN</span>
-                                            <div class="token-countdown-clock" data-date="2020/04/10"></div>
-                                        </div>
-                                    </div>
-                                    <!-- .token-card -->
-                                    <div class="user-content">
-                                        <div class="user-panel">
-                                            <h2 class="user-panel-title">Actividad</h2>
-                                            <p>Acá podremos revisar las actividades que la empresa ha solicitado. </p>
-                                            <asp:GridView ID="GridView1" runat="server" class="data-table" style="text-align : center;" OnSelectedIndexChanging="GridView1_SelectedIndexChanged2" OnRowCancelingEdit="rowCancerEditEvent" OnRowDeleting="rowDeletingEvent" OnRowEditing="rowEditingEvent" OnRowUpdating="rowUpdatingEvent" AutoGenerateColumns ="False">                           
+                                    <h2 class="user-panel-title">Lista</h2>
+
+                                    <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+                                        
+                                    </ul>
+                                    <!-- .nav-tabs-line -->
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="personal-data">
+                                              
+
+                                                  <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GriedView1List_RowCommand">
                                                 <Columns>
+
                                                     <asp:TemplateField HeaderText="ID">
                                                         <ItemTemplate>
-                                                            <asp:Label  ID="Label1" runat="server"   Width="30" Text='<% # Bind("ASES_ID") %>'></asp:Label>
+                                                            <asp:Label  ID="idases" runat="server"   Width="30" Text='<% # Bind("ASES_ID") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
+
                                                     <asp:TemplateField HeaderText="Fecha">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="Label1" runat="server" Width="155"  Text='<% # Bind("ASES_FECHA") %>'></asp:Label>
+                                                            <asp:Label ID="Label2" runat="server" Width="155"  Text='<% # Bind("ASES_FECHA") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>                                                   
+                                                    </asp:TemplateField>   
+                                                    
                                                      <asp:TemplateField HeaderText="Tipo">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="Label1" runat="server" Width="100" Text='<% # Bind("ASES_TIPO") %>'></asp:Label>
+                                                            <asp:Label ID="Label3" runat="server" Width="150" Text='<% # Bind("ASES_TIPO") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Realizada">
-                                                        <ItemTemplate>
-                                                            <asp:Label ID="Label1" runat="server"  Width="60" Text='<% # Bind("ASES_REALIZADA") %>'></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
+
+                                                    <asp:HyperLinkField text="Obtener id" DataNavigateUrlFields="ASES_ID" DataNavigateUrlFormatString="test.aspx?Id={0}"/>
+
                                                 </Columns>
-                                            </asp:GridView>                                          
-                                            <br />
+                                            </asp:GridView>
+
+                                            
                                         </div>
-                                        <!-- .user-panel -->
+                                        <!-- .tab-pane -->                                        
+
                                     </div>
-                                    <!-- .user-content -->
-                                    <!-- .user-panel -->
+                                    <!-- .tab-content -->
                                 </div>
-                                <!-- .user-content -->
+                                <!-- .user-panel -->
                             </div>
-                            <!-- .d-flex -->
+                            <!-- .user-content -->
                         </div>
-                        <!-- .container -->
-                    </div>
-                    <!-- UserWraper End -->
-                    </div>
+                    <!-- .container -->
+                </div>
+                <!-- UserWraper End -->
+               </div>
 
-                    
-
-                    
             </body>
         </div>
-    
 </asp:Content>

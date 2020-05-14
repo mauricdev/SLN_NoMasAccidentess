@@ -7,30 +7,21 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Webpage_Nma.Cliente
+namespace Webpage_Nma
 {
 
 
-    public partial class modificarClientes
+    public partial class Contacto
     {
 
         /// <summary>
-        /// Control label1.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label1;
-
-        /// <summary>
-        /// Control label2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// Control divmas.
@@ -51,40 +42,31 @@ namespace Webpage_Nma.Cliente
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Control txtnombre.
+        /// Control txtNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtnombre;
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
         /// <summary>
-        /// Control TextCorreo.
+        /// Control txtCorreo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextCorreo;
+        protected global::System.Web.UI.WebControls.TextBox txtCorreo;
 
         /// <summary>
-        /// Control TextApellido.
+        /// Control txtMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextApellido;
-
-        /// <summary>
-        /// Control TextNumber.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextNumber;
+        protected global::System.Web.UI.WebControls.TextBox txtMensaje;
 
         /// <summary>
         /// Control btn1.
