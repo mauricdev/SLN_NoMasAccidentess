@@ -9,7 +9,6 @@ namespace Webpage_Nma
 {
     public partial class Site2 : System.Web.UI.MasterPage
     {
-        W_NMA.Service1Client client = new W_NMA.Service1Client();
         protected void Page_Load(object sender, EventArgs e)
         {
             string rut = System.Web.HttpContext.Current.Session["UserRut"].ToString();

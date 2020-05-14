@@ -18,9 +18,9 @@
     <script src="js/jquery.validate.js"></script>
     <script src="js/signup-form.js"></script>
 </head>
-    <form runat="server" runat="server"  >
-<body class="user-dashboard">
-                <div class="topbar">
+<body>
+    <form runat="server">
+    <div class="topbar">
                     <div class="topbar-md d-lg-none">
                         <div class="container">
                             <div class="d-flex align-items-center justify-content-between">
@@ -36,7 +36,7 @@
 
                                 <div class="site-logo">
                                     <a href="panel.aspx" class="site-brand">
-                                        <img src="/images/candado2.png" alt="logo" srcset="/images/candado2.png 2x">
+                                        <img src="/images/candado2.png" alt="logo" height="60px" srcset="/images/candado2.png 2x">
                                     </a>
                                 </div>
                                 <!-- .site-logo -->
@@ -48,7 +48,7 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <div class="user-dropdown">
                                             <div class="user-dropdown-head">
-                                                <h6 class="user-dropdown-name">Stefan Harary</h6>
+                                                <h6 class="user-dropdown-name">Stefan Harary</span></h6>
                                                 <span class="user-dropdown-email">useremail@example.com</span>
                                             </div>
                                             <ul class="user-dropdown-btns btn-grp guttar-10px">
@@ -88,9 +88,6 @@
                                     <li class="topbar-action-item topbar-action-link">
                                         <a href="#"><em class="ti ti-home"></em>Inicio</a>
                                     </li>
-                                    <li class="topbar-action-item topbar-action-link">
-                                        <a href="#"><em class="ti ti-book"></em>FAQ#</a>
-                                    </li>
                                     <!-- .topbar-action-item -->
                                     <!-- .topbar-action-item -->
                                     <li class="dropdown topbar-action-item topbar-action-user">
@@ -104,11 +101,10 @@
                                                     <h5 class="user-dropdown-email"><asp:Label runat ="server" ID="label2"></asp:Label></h5>
                                                 </div>
                                                 <ul class="user-dropdown-links">
-                                                    <li><a href="ModificarProfesional.aspx"><i class="ti ti-id-badge"></i>Mi perfil</a></li>
+                                                    <li><a href="profesionales/ModificarProfesional.aspx"><i class="ti ti-id-badge"></i>Mi perfil</a></li>
                                                 </ul>
                                                 <ul class="user-dropdown-links">
-                                                    <li><asp:LinkButton ID="LinkButton1" class="ti ti-power-off" runat="server" OnClick="LinkButton1_Click">Salir</asp:LinkButton></li>
-                                                    </ul>
+                                                    <li><a href="login.html"><i class="ti ti-power-off"></i>Salir</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -125,19 +121,18 @@
                 </div>
                 <!-- TopBar End -->
 
+
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-   
-                <!-- Copyright -->
-  
 
-    <!-- JavaScript (include all script here) -->
-                <script src="/assets2/js/jquery.bundle.js?ver=101"></script>
-                <script src="/assets2/js/script.js?ver=101"></script>
-  <!-- Copyright -->
-    
+         <div class="footer-copyright text-center py-3">© 2020 Copyright:
+          <a href="https://segurito.com"> Segurito.com</a>
+         </div>
+ 
+         <script src="/assets2/js/jquery.bundle.js?ver=101"></script>
+         <script src="/assets2/js/script.js?ver=101"></script>
+    </form>
 </body>
-        </form>
 </html>

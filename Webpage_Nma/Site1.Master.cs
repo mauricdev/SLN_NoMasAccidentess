@@ -22,16 +22,5 @@ namespace Webpage_Nma
             label1.Text = nombre;
             label2.Text = correo;
         }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            System.Web.HttpContext.Current.Session["UserRut"] = "";
-            System.Web.HttpContext.Current.Session["UserCorreo"] = "";
-            System.Web.HttpContext.Current.Session["UserNombre"] = "";
-            System.Web.HttpContext.Current.Session["UserPass"] = "";
-            System.Web.HttpContext.Current.Session["UserTelefono"] = "";
-            System.Web.HttpContext.Current.Session["EMPRESA_EMP_RUT"] = "";
-            Response.Redirect("../index.aspx");
-        }
     }
 }

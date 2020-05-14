@@ -1,16 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Biblioteca" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Biblioteca" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="profesional">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AREAPROF_AREA_ID" type="xs:decimal" />
-      <xs:element minOccurs="0" name="PROF_ACTIVO" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PROF_APELLIDO" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PROF_CORREO" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PROF_NOMBRE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PROF_PASS" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PROF_RUT" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PROF_TELEFONO" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="profesional" nillable="true" type="tns:profesional" />
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:49430/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Biblioteca" />
+  <xs:import schemaLocation="http://localhost:49430/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DAL" />
+  <xs:element name="listarProfesionalEspecifico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rut" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarProfesionalEspecificoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Biblioteca" minOccurs="0" name="listarProfesionalEspecificoResult" nillable="true" type="q1:profesional" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modificarProfesional">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rut" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="apellido" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="telefono" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="area" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modificarProfesionalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modificarProfesionalResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listar">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="listarResult" nillable="true" type="q2:ArrayOfPROFESIONAL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarAsesorias">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rutEmpresa" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="listarAsesoriasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="listarAsesoriasResult" nillable="true" type="q3:ArrayOfASESORIA" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rut" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="loginResult" nillable="true" type="q4:ArrayOfUSUARIOEMPRESA" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validarRut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rut" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="validarRutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="validarRutResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarUsuarioEspecifico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rut" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarUsuarioEspecificoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="ListarUsuarioEspecificoResult" nillable="true" type="q5:ArrayOfUSUARIOEMPRESA" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modificarUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uSER_RUT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uSER_NOMBRE" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uSER_CORREO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uSER_PASS" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="USER_ACTIVO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="eMPRESA_EMP_RUT" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="uSER_TELEFONO" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modificarUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modificarUsuarioResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

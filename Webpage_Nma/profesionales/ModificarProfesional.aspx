@@ -62,6 +62,7 @@
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="personal-data">
                                         <br />
+                                        <form id="form1">
                                             <div id="divmas" runat="server" class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 <strong>
                                                     <asp:Label ID="Label4" Text="" runat="server" />
@@ -71,11 +72,9 @@
                                                 </button>
                                             </div>
 
-
-
                                             <div class="input-item input-with-label">
                                                 <label for="full-name" class="input-item-label">Nombre</label>
-                                                <asp:TextBox ID="txtnombre" type="text" runat="server" class="input-bordered" required="true"></asp:TextBox>
+                                                <asp:TextBox ID="txtnombre" type="text" runat="server" class="input-bordered" OnTextChanged="txtnombre_TextChanged" required="true"></asp:TextBox>
                                             </div>
                                             <!-- .input-item -->
                                             <!-- .input-item -->
@@ -97,8 +96,9 @@
                                             <!-- 10px gap -->
                                             <div class="d-sm-flex justify-content-between align-items-center">
                                                 <asp:Button class="btn btn-primary" ID="btn1" runat="server" Text="Actualizar" OnClick="btn1_Click" />
-                                            <div class="gaps-2x d-sm-none"></div>
+                                                <div class="gaps-2x d-sm-none"></div>
                                             </div>
+                                        </form>
                                         <!-- form -->
                                     </div>
                                     <!-- .tab-pane -->

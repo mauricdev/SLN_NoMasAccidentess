@@ -102,7 +102,7 @@
                     </div>
                             </div>
 
-                <di|v class="row">
+                <div class="row">
                     <div class="col-md-12">
 
                         <div class="md-form">
@@ -110,7 +110,7 @@
                             <label for="message">Mensaje</label>
                         </div>
                     </div>
-                </di|v>
+                </div>
                     </form>
 
 

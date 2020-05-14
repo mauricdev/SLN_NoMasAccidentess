@@ -72,6 +72,7 @@ namespace Webpage_Nma.Cliente
                 string numeros = TextNumber.Text;
 
                 client.modificarUsuario(rut, name, correos, pass, "1", empresa, numeros);
+
                 System.Web.HttpContext.Current.Session["UserCorreo"] = correos;
                 System.Web.HttpContext.Current.Session["UserNombre"] = name;
                 System.Web.HttpContext.Current.Session["UserPass"] = pass;

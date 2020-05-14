@@ -46,35 +46,24 @@
                                     </div>
                                     <h5>Ingresa a tu cuenta</h5>
                                      <form runat="server" id="form2" class="login-form">
-                                        <div id="divmas" runat="server" class="alert alert-danger alert-dismissible fade show" role="alert">
-                                                <strong>
-                                                    <asp:Label ID="Label4" Text="" runat="server" />
-                                                </strong>
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
+                                        <div class="text-center " role="alertdialog">
+                                                    <asp:Label ID="Label4" runat="server" Text="" ForeColor="Red"></asp:Label>
+                                        </div>
 
-                                        <div class="col-md-12">
+                                        <div class="auto-style1">
                                             <asp:Label ID="Label1" runat="server" Text="Rut:"></asp:Label><br />
                                             <asp:Textbox ID="txtRut"  type="text" runat="server" class="input-bordered" OnTextChanged="txtnombre_TextChanged"></asp:Textbox>
                                         </div>
-
-                                        <div class="col-md-12">
+                                        <div class="input-item">
                                             <asp:Label ID="Label2" runat="server" Text="Contraseña"></asp:Label><br />
                                              <asp:TextBox ID="txtClave"  type="password" runat="server" class="input-bordered" OnTextChanged="txtnombre_TextChanged"></asp:TextBox>
                                         </div>
-
-                                         <br />
-                                        <div class="text-center">
+                                        <div class="gaps"></div>
+                                        <div class="d-flex justify-content-between align-items-center">
                                             <asp:Button ID="Button1" runat="server" Text="Ingresar" class="btn btn-alt" OnClick="Button1_Click" style="height: 50px"/>
+                                            <a href="Cliente/panel.aspx" class="simple-link">Olvidaste tu clave?</a>
                                         </div>
-                                         <br />
-
-                                         <div>
-                                             <a href="Cliente/panel.aspx" class="simple-link">Olvidaste tu clave?</a>
-                                         </div>
-                                     </form>
+                                    </form>
                                 </div>
                                 <div class="gaps size-2x"></div>
                                 <div class="form-note">

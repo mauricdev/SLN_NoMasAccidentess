@@ -24,7 +24,6 @@
                                 <ul class="user-icon-nav">
                                     <li><a href="panelProfesional.aspx"><em class="ti ti-dashboard"></em>Inicio</a></li>
                                     <li><a href="ModificarProfesional.aspx"><em class="ti ti-user"></em>Cuenta</a></li>
-                                    <li><a href="Checklist.aspx"><em class="ti ti-agenda"></em>Check List</a></li>
                                 </ul>
                                 <!-- .user-icon-nav -->
                                 <div class="user-sidebar-sap"></div>
