@@ -14,6 +14,7 @@ namespace Webpage_Nma
         W_NMA.Service1Client client = new W_NMA.Service1Client();
         protected void Page_Load(object sender, EventArgs e)
         {
+            divmas.Style["Visibility"] = "hidden";
         }
 
         protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
@@ -78,7 +79,7 @@ namespace Webpage_Nma
                                     string empresa = emp.EMPRESA_EMP_RUT;
                                     if (rol.Equals("Profesional"))
                                     {
-                                        Response.Write("<script>alert('Funciono conchetumare');window.location = 'profesionales/panelProfesional.aspx';</script>");
+                                        Response.Write("<script>alert('Logeado con éxito');window.location = 'profesionales/panelProfesional.aspx';</script>");
 
 
                                         System.Web.HttpContext.Current.Session["UserRut"] = rut;
@@ -92,7 +93,7 @@ namespace Webpage_Nma
                                     }
                                     else
                                     {
-                                        if (rol.Equals("Usuario"))
+                                        if (rol.Equals("Cliente"))
                                         {
 
                                             System.Web.HttpContext.Current.Session["UserRut"] = rut;
@@ -101,7 +102,7 @@ namespace Webpage_Nma
                                             System.Web.HttpContext.Current.Session["UserPass"] = passw;
                                             System.Web.HttpContext.Current.Session["UserTelefono"] = telefono;
                                             System.Web.HttpContext.Current.Session["EMPRESA_EMP_RUT"] = empresa;
-                                            Response.Write("<script>alert('Funciono conchetumare');window.location = 'Cliente/panel.aspx';</script>");
+                                            Response.Write("<script>alert('Logeado con éxito');window.location = 'Cliente/panel.aspx';</script>");
                                         }
                                     }
                                 }
@@ -113,7 +114,7 @@ namespace Webpage_Nma
             }
             catch (Exception ex)
             {
-
+                divmas.Style["Visibility"] = "Visible";
                 Label4.Text = ex.Message;
             }
             

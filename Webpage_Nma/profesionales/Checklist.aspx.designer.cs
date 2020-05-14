@@ -7,30 +7,12 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Webpage_Nma
+namespace Webpage_Nma.profesionales
 {
 
 
-    public partial class infoCliente
+    public partial class Checklist
     {
-
-        /// <summary>
-        /// Control label1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label1;
-
-        /// <summary>
-        /// Control label2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label2;
 
         /// <summary>
         /// Control GridView1.
