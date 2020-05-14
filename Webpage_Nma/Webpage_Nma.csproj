@@ -198,6 +198,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Cliente\test.aspx" />
     <Content Include="Contacto.aspx" />
     <Content Include="Formulario web1.aspx" />
     <Content Include="images\blog-large-a.jpg" />
@@ -438,6 +439,7 @@
     <Content Include="Cliente\infoCliente.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Cliente\panel.aspx" />
+    <Content Include="profesionales\Checklist.aspx" />
     <Content Include="profesionales\ModificarProfesional.aspx" />
     <Content Include="profesionales\panelProfesional.aspx" />
     <Content Include="Web.config" />
@@ -464,6 +466,13 @@
     </Compile>
     <Compile Include="Cliente\pagoCliente.aspx.designer.cs">
       <DependentUpon>pagoCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\W_NMA\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -497,6 +506,13 @@
     </Compile>
     <Compile Include="Cliente\panel.aspx.designer.cs">
       <DependentUpon>panel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profesionales\Checklist.aspx.cs">
+      <DependentUpon>Checklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profesionales\Checklist.aspx.designer.cs">
+      <DependentUpon>Checklist.aspx</DependentUpon>
     </Compile>
     <Compile Include="profesionales\ModificarProfesional.aspx.cs">
       <DependentUpon>ModificarProfesional.aspx</DependentUpon>
@@ -620,6 +636,7 @@
     <Content Include="assets2\fonts\themify.eot" />
     <Content Include="assets2\fonts\themify.ttf" />
     <Content Include="assets2\fonts\themify.woff" />
+    <Content Include="libman.json" />
     <None Include="Connected Services\W_NMA\Service1.wsdl" />
     <None Include="Connected Services\W_NMA\Service1.xsd">
       <SubType>Designer</SubType>
@@ -630,14 +647,13 @@
     <None Include="Connected Services\W_NMA\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Connected Services\W_NMA\Webpage_Nma.W_NMA.profesional.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="libman.json" />
     <None Include="Connected Services\W_NMA\Service13.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Connected Services\W_NMA\Webpage_Nma.W_NMA.ASESORIA1.datasource">
+    <Content Include="Connected Services\W_NMA\Webpage_Nma.W_NMA.ASESORIA.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\W_NMA\Webpage_Nma.W_NMA.profesional.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\W_NMA\Webpage_Nma.W_NMA.PROFESIONAL1.datasource">
